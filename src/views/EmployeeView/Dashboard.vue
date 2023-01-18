@@ -48,53 +48,68 @@
                 <p>MINUTES <span>{{ minutes }}</span></p>
                 <p>SECONDS <span>{{ seconds }}</span></p>
             </div>
-            <ion-text color="primary">
-                <h3>Choose your shift below:</h3>
-            </ion-text>
-            <div v-if="upcoming.length != 0">
-                <div class="mt" v-for="upSchedule in upcoming" :key="upSchedule.assigndesignation_employeeid">
-                    <ion-card button="true" @click="ReadyToClockin(upSchedule.schedules_id,new Date().toLocaleTimeString())">
-                        <ion-card-header>
-                            <div class="d-flex">
-                                <div>
-                                    <ion-card-title>{{ dateFormat('%h:%i%a', upSchedule.schedules_dates+' '+upSchedule.schedules_timestart) }} - {{ dateFormat('%h:%i%a', upSchedule.schedules_dates+' '+upSchedule.schedules_timeend) }}</ion-card-title>
-                                    <ion-card-subtitle>{{ upSchedule.role_name }}</ion-card-subtitle>
+            <div v-if="Object.keys(current).length == 0"><!--check if naay existing schedule nga naka clocking which is status kay 2-->
+                <ion-text color="primary">
+                    <h3>Choose your shift below:</h3>
+                </ion-text>
+                <div v-if="upcoming.length != 0">
+                    <div class="mt" v-for="upSchedule in upcoming" :key="upSchedule.assigndesignation_employeeid">
+                        <ion-card button="true" @click="ReadyToClockin(upSchedule.schedules_id,new Date().toLocaleTimeString())">
+                            <ion-card-header>
+                                <div class="d-flex">
+                                    <div>
+                                        <ion-card-title>{{ dateFormat('%h:%i%a', upSchedule.schedules_dates+' '+upSchedule.schedules_timestart) }} - {{ dateFormat('%h:%i%a', upSchedule.schedules_dates+' '+upSchedule.schedules_timeend) }}</ion-card-title>
+                                        <ion-card-subtitle>{{ upSchedule.role_name }}</ion-card-subtitle>
+                                    </div>
+                                    <div>
+                                        <ion-icon :icon="timerOutline"></ion-icon>
+                                    </div>
                                 </div>
-                                <div>
-                                    <ion-icon :icon="timerOutline"></ion-icon>
-                                </div>
-                            </div>
-                        </ion-card-header>
-                        <ion-card-content>
-                            <p>Facility: {{ upSchedule.facility_name }}</p>
-                            <p>Schedule Description: {{ upSchedule.schedules_description }}</p>
-                        </ion-card-content>
-                    </ion-card>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <p>Facility: {{ upSchedule.facility_name }}</p>
+                                <p>Schedule Description: {{ upSchedule.schedules_description }}</p>
+                            </ion-card-content>
+                        </ion-card>
+                    </div>
+                </div>
+                <div style="text-align:center;" v-else>
+                    <div class="mt">
+                        <ion-text color="secondary">
+                            <h3>
+                                No schedule assigned to you today
+                            </h3>
+                        </ion-text>
+                    </div>
                 </div>
             </div>
-            <div style="text-align:center;" v-else>
+            <div v-else>
                 <div class="mt">
-                    <ion-text color="secondary">
-                        <h3>
-                            No schedule assigned to you today
-                        </h3>
-                    </ion-text>
+                    <ion-card-header>
+                        <ion-text>You clockin at {{ timein }}</ion-text>
+                        <ion-card-title>{{ dateFormat('%h:%i%a', current.schedules_dates+' '+current.schedules_timestart) }} - {{ dateFormat('%h:%i%a', current.schedules_dates+' '+current.schedules_timeend) }}</ion-card-title>
+                        <ion-card-subtitle>{{ current.role_name }}</ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>Facility: {{ current.facility_name }}</p>
+                        <p>Schedule Description: {{ current.schedules_description }}</p>
+                    </ion-card-content>
                 </div>
+                <ion-button @click="ClockOut">Clock Out</ion-button>
             </div>
         </ion-content>
     </ion-page>
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, menuController, IonButtons, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText } from '@ionic/vue';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, menuController, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText } from '@ionic/vue';
 import { apps, map, chatbox, settings, ticket, helpCircle, logOut, alertCircle, warning, menu, reader, checkmarkCircle, location, time, calendar, calendarClear, navigate, person, timerOutline } from 'ionicons/icons';
-import { lStore, axios, formatDateString,dateFormat } from '@/functions'; 
-// openToast LNotifications
-// import { Geolocation } from '@capacitor/geolocation';
+import { lStore, axios, formatDateString,dateFormat,openToast } from '@/functions'; 
+
 
 export default defineComponent({
     name: 'DashboardView',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, IonButtons, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText },
     setup() {
         const logScrolling = (e) => {
             if (e.detail.scrollTop >= 20) {
@@ -129,6 +144,8 @@ export default defineComponent({
             segmentMode: 'todays-schedule',
             getMonthToday: '',
             fiveminutes: 0,
+            current:{},
+            timein:lStore.get('time'),
         }
     },
     created() {
@@ -223,15 +240,35 @@ export default defineComponent({
             if(resp.data == null || !resp.data.success) return;
             if(resp.data != null && resp.data.success) {
                 //Getting Upcoming schedules
-                this.upcoming = resp.data.result.filter(el =>{
-                    return new Date(el.schedules_dates).toLocaleDateString() == new Date().toLocaleDateString() && el.assignschedules_timein == null;//add condition if the start time and end time kay humana kay dapat di makita sa schedule
-                })
-                this.upcoming = this.upcoming.sort((a,b)=>{
-                    return new Date(a.schedules_dates+' '+ a.schedules_timestart) - new Date(b.schedules_dates+' '+ b.schedules_timestart)
-                })
+                resp.data.result.forEach(element => {
+                    if(element.assignschedules_status == 2 && element.assignschedules_timeout == null)
+                    {
+                        this.current = element;
+                    }
+                });
+                if(Object.keys(this.current).length == 0)
+                {                    
+                    this.upcoming = resp.data.result.filter(el =>{
+                        return new Date(el.schedules_dates).toLocaleDateString() == new Date().toLocaleDateString() && el.assignschedules_timein == null;//add condition if the start time and end time kay humana kay dapat di makita sa schedule
+                    })
+                    console.log(this.upcoming);
+                    this.upcoming = this.upcoming.sort((a,b)=>{
+                        return new Date(a.schedules_dates+' '+ a.schedules_timestart) - new Date(b.schedules_dates+' '+ b.schedules_timestart)
+                    })
+                }
+                console.log(this.upcoming)
             }
 
         },
+        ClockOut(){
+            let ClockinTime = new Date().toLocaleTimeString()
+            axios.post('assign/update?id='+this.current.assignschedules_id,null,{ assignschedules_timeout: ClockinTime, assignschedules_status: 1}).then(()=>{
+                openToast('Successfully Clockout', 'primary')
+            })
+            setTimeout(()=>{
+                window.location.reload();
+            },3000);
+        }
     }
 });
 </script>

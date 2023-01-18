@@ -7,14 +7,14 @@
             <ion-text class="ion-padding-start ion-margin-top" color="primary">You will clockin at {{ timers }} on schedule  {{ readytoclockinsched.schedules_description }} from {{ new Date(readytoclockinsched.schedules_dates+' '+readytoclockinsched.schedules_timestart).toLocaleTimeString() }} - {{ new Date(readytoclockinsched.schedules_dates+' '+readytoclockinsched.schedules_timeend).toLocaleTimeString() }}</ion-text>
             <div class="d-flex">
                 <ion-text class="ion-padding-start ion-margin-top">Please provide a selfie</ion-text>
-                <!-- <img :src="user.employee_profilepicture" v-if="user.employee_profilepicture != 'https://www.4angelshc.com/mobile/filesystem/'"/> -->
-                <img src="../../images/profile.svg" />
+                <img :src="readytoclockinsched.assignschedules_selfie" v-if="readytoclockinsched.assignschedules_selfie != 'https://www.4angelshc.com/mobile/filesystem/' && readytoclockinsched.assignschedules_selfie != null"/>
+                <img src="../../images/profile.svg" v-else/>
                 <ion-buttons class="camera-icon">
                     <ion-icon :icon="camera" @click="setProfileImg"></ion-icon>
                 </ion-buttons>
             </div>
             <div>
-                <ion-button>
+                <ion-button @click="ClockIn">
                     continue
                 </ion-button>
             </div>
@@ -23,9 +23,10 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { IonContent, IonPage, IonHeader, IonText,IonIcon,IonButtons,IonButton } from '@ionic/vue';
+import { IonContent, IonPage, IonHeader, IonText,IonIcon,IonButtons,IonButton,actionSheetController } from '@ionic/vue';
 import { apps, map, chatbox, settings, ticket, helpCircle, logOut, alertCircle, warning, menu, reader, checkmarkCircle, location, time, calendar, calendarClear, navigate, person, timerOutline,camera } from 'ionicons/icons';
-import { lStore, axios, formatDateString } from '@/functions'; 
+import { lStore, axios, formatDateString,ImageDataConverter,openToast } from '@/functions';
+import axiosA from 'axios';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import BackButton from '@/views/BackButton';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
@@ -52,7 +53,7 @@ export default defineComponent({
         }
     },
     created() {
-        console.log(this.timers);
+        
         let currentDate = new Date();
         let currentDateString = currentDate.toLocaleDateString().split('/');
         currentDateString = formatDateString(currentDateString[2] + '-' + currentDateString[0] + '-' + currentDateString[1]).replaceAll(' ','');
@@ -62,6 +63,10 @@ export default defineComponent({
         let weekDateArr = weekDate.split('/');
         let weekDateString = formatDateString(weekDateArr[2]+'-'+weekDateArr[0]+'-'+weekDateArr[1]).replaceAll(' ','');
         axios.post(`schedule?_joins=assignschedules,assigndesignation,facility,role&_on=assignschedules_scheduleid=schedules_id,assigndesignation_id=assignschedules_assigndesignationid,schedules_facilityid=facility_id,role_id=assigndesignation_roleid&_GTE_schedules_dates=${currentDateString}&_LSE_schedules_dates=${weekDateString}&_batch=true&schedules_id=${lStore.get('scheduleclockinid')}&_orderby=dates,schedules__timestart_ASC`).then(res=>{
+            if(res.data.result == null)
+            {
+                return;
+            }
             res.data.result.forEach(element => {
                 this.readytoclockinsched = element;
             });
@@ -82,10 +87,10 @@ export default defineComponent({
             form.append('file',blob,'file.'+blobObj.getMimeString().replace(/\w+\//g,''));
 
             let action = await actionSheetController.create({
-                header: 'Confirm Profile Image?',
+                header: 'Confirm Image?',
                 buttons: [
                     {
-                        text: 'Confirm Profile',
+                        text: 'Confirm',
                         data: {
                             action: 'confirm',
                         },
@@ -118,12 +123,12 @@ export default defineComponent({
                 if(res.data.action == 'confirm') {
                     axiosA({
                         method:'post',
-                        url: 'https://4angelshc.com/mobile/employee/update?id='+lStore.get('user_id'),
+                        url: 'https://4angelshc.com/mobile/assign/update?id='+this.readytoclockinsched.assignschedules_id,
                         data : form
                     }).then(()=>{
                         this.loadImage = true;
                         let userFromLStore = lStore.get('user_info')
-                        userFromLStore.employee_profilepicture = image.dataUrl;
+                        userFromLStore.assignschedules_selfie = image.dataUrl;
                         lStore.set('user_info', userFromLStore);
                         window.location.reload();
                     })
@@ -132,6 +137,15 @@ export default defineComponent({
             });
 
             
+        },
+        ClockIn()
+        {
+            let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString();
+            axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2}).then(()=>{
+                console.log('successfully save');
+            })
+            openToast('Successfully Clockin', 'primary')
+            this.$router.back();
         }
     }
 });
