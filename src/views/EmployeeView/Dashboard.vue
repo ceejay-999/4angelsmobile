@@ -263,7 +263,7 @@ export default defineComponent({
         },
         async ClockOut(){
             const coordinates = await Geolocation.getCurrentPosition({enableHighAccuracy:true});
-            if(calcFlyDist([this.current.facility_location_long,this.current.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.lattitude]) <= 0.2)//longitude lattitude
+            if(calcFlyDist([this.current.facility_location_long,this.current.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]) <= 0.2)//longitude lattitude
             {
                 let ClockinTime = new Date().toLocaleTimeString()
                 axios.post('assign/update?id='+this.current.assignschedules_id,null,{ assignschedules_timeout: ClockinTime, assignschedules_status: 1,assignschedules_timeoutlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeoutlong: coordinates.coords.longitude, assignschedules_timeoutlat: coordinates.coords.latitude}).then(()=>{
