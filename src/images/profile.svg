@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="307.1234px" height="307.1234px" viewBox="0 0 307.1234 307.1234" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="150" y1="-1.3113417E-05" x2="149.99998" y2="299.99997" id="gradient_1">
+      <stop offset="0%" stop-color="#FFC9B2" />
+      <stop offset="100%" stop-color="#FFD2C2" />
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="58.518936" y1="0" x2="58.518936" y2="157.53967" id="gradient_2">
+      <stop offset="0%" stop-color="#E6864E" />
+      <stop offset="100%" stop-color="#EB965E" />
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="28.370274" y1="4.513055" x2="16.246407" y2="26.14103" id="gradient_3">
+      <stop offset="0%" stop-color="#E07A3F" />
+      <stop offset="100%" stop-color="#EB9154" />
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="120" y1="0" x2="120" y2="101.30783" id="gradient_4">
+      <stop offset="0%" stop-color="#1D0024" />
+      <stop offset="100%" stop-color="#100014" />
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="67.983635" y1="0" x2="67.983635" y2="120.00341" id="gradient_5">
+      <stop offset="0%" stop-color="#1D0024" />
+      <stop offset="100%" stop-color="#100014" />
+    </linearGradient>
+    <path d="M150 300C67.1573 300 0 232.843 0 150C0 67.1573 67.1573 0 150 0C232.843 0 300 67.1573 300 150C300 232.843 232.843 300 150 300Z" id="path_1" />
+    <clipPath id="mask_1">
+      <use xlink:href="#path_1" />
+    </clipPath>
+  </defs>
+  <g id="User-05c" transform="translate(3.5617676 3.5616913)">
+    <path d="M150 300C67.1573 300 0 232.843 0 150C0 67.1573 67.1573 0 150 0C232.843 0 300 67.1573 300 150C300 232.843 232.843 300 150 300Z" id="Mask" fill="url(#gradient_1)" fill-rule="evenodd" stroke="none" />
+    <g clip-path="url(#mask_1)">
+      <path d="M181 174C181 174 181 174 181 186C181 202 204 209 204 209C204 209 177.5 229 150 229C122.5 229 96 209 96 209C96 209 119.181 202 119 186C118.819 170 118.94 160.602 118.819 133.188C104.487 114.611 105.407 102.143 113.244 93.3751C139.5 64 211 74 211 74C211 74 217.672 145.993 202.5 167C196 176 181 174 181 174Z" id="face" fill="url(#gradient_2)" fill-rule="evenodd" stroke="none" />
+      <path d="M181 174C159 171.5 146 162 146 162C146 162 157 180.5 181 186L181 174Z" id="shade" fill="url(#gradient_3)" fill-opacity="0.6" style="mix-blend-mode: multiply;" fill-rule="evenodd" stroke="none" />
+      <path d="M255 239.308C264.52 258.665 270 303.308 270 303.308L30 303.308C30 303.308 35.4824 258.66 45 239.308C54.5176 219.956 110.099 202.007 110.099 202.007C120.813 224.005 179.608 224.002 189.871 202C189.871 202 245.48 219.951 255 239.308Z" id="body" fill="url(#gradient_4)" fill-rule="evenodd" stroke="none" />
+      <path d="M154 238C154 240.209 152.209 242 150 242C147.791 242 146 240.209 146 238C146 235.791 147.791 234 150 234C152.209 234 154 235.791 154 238ZM154 258C154 260.209 152.209 262 150 262C147.791 262 146 260.209 146 258C146 255.791 147.791 254 150 254C152.209 254 154 255.791 154 258ZM154 278C154 280.209 152.209 282 150 282C147.791 282 146 280.209 146 278C146 275.791 147.791 274 150 274C152.209 274 154 275.791 154 278Z" id="buttons" fill="#FFFFFF" fill-rule="evenodd" stroke="none" />
+      <path d="M131.155 103.209C127.975 100.477 124.111 98.6389 118.649 101.477C105.7 108.205 115.5 134 127 134C130.001 134 131.492 143.422 118.135 150.003C118.135 139.503 102.135 113.503 100.739 89.8309C84.6346 83.8362 88.6346 59.8492 99.6922 59.8492C97.9236 37.8577 133.135 26.5034 146.769 39.1194C160.635 22.5034 195.635 31.0034 197.748 45.4183C221.815 32.5706 237.635 69.5034 215.1 83.8362C205.827 89.7338 184.135 91.9812 152.822 91.9812C148.096 91.9812 145.448 93.155 146.769 99C149.328 110.326 143.387 117.46 131.155 103.209Z" id="hair" fill="url(#gradient_5)" fill-rule="evenodd" stroke="none" />
+    </g>
+  </g>
+</svg>

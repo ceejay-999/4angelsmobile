@@ -1,0 +1,357 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.1-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="599.999pt" height="447.071pt" viewBox="251.584 -630.655 599.999 447.071">
+ <defs>
+	</defs>
+ <g id="Page background" transform="scale(1 -1)"/>
+ <g id="MouseOff" transform="scale(1 -1)">
+  <rect x="251.585" y="237.476" width="599.999" height="0.299" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="377.031" y="229.304" width="39.743" height="0.299" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="456.952" y="218.313" width="48.899" height="0.299" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="314.536" y="222.068" width="61.294" height="0.299" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="679.696" y="227.288" width="111.766" height="0.299" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="661.42" y="227.288" width="7.595" height="0.299" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="584.236" y="222.224" width="50.675" height="0.299" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <path d="M 535.984,291.295 L 304.276,291.295 C 300.496,291.301 297.436,294.367 297.436,298.147 L 297.436,623.863 C 297.468,627.619 300.519,630.648 304.276,630.655 L 535.984,630.655 C 539.768,630.655 542.836,627.587 542.836,623.803 L 542.836,623.803 L 542.836,298.147 C 542.836,294.362 539.768,291.294 535.984,291.294 Z M 304.276,630.415 C 300.662,630.408 297.735,627.476 297.736,623.863 L 297.736,298.147 C 297.736,294.533 300.662,291.601 304.276,291.595 L 535.984,291.595 C 539.597,291.608 542.522,294.533 542.536,298.147 L 542.536,623.863 C 542.522,627.476 539.597,630.401 535.984,630.415 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb" marker-start="none" marker-end="none"/>
+  <path d="M 795.556,291.295 L 563.836,291.295 C 560.057,291.308 556.997,294.368 556.983,298.147 L 556.983,623.863 C 557.023,627.621 560.077,630.648 563.836,630.655 L 795.556,630.655 C 799.307,630.642 802.351,627.614 802.384,623.863 L 802.384,298.147 C 802.39,294.369 799.333,291.301 795.555,291.295 Z M 563.836,630.415 C 560.222,630.401 557.297,627.476 557.283,623.863 L 557.283,298.147 C 557.297,294.533 560.222,291.608 563.836,291.595 L 795.556,291.595 C 799.169,291.608 802.094,294.533 802.107,298.147 L 802.108,623.863 C 802.094,627.476 799.169,630.401 795.556,630.415 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb" marker-start="none" marker-end="none"/>
+  <path d="M 336.388,491.335 L 440.499,491.335 C 440.499,491.335 434.896,504.367 416.175,500.311 C 416.175,500.311 412.239,515.131 397.959,513.079 C 397.959,513.079 386.139,525.894 368.895,520.926 C 351.651,515.958 353.139,500.31 353.139,500.31 C 353.139,500.31 340.384,503.647 336.388,491.335 Z" fill="#f5f5f5" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 615.052,570.727 L 510.952,570.727 C 510.952,570.727 516.544,583.771 535.264,579.715 C 535.264,579.715 539.2,594.535 553.492,592.483 C 553.492,592.483 565.312,605.287 582.544,600.319 C 599.775,595.351 598.312,579.715 598.312,579.715 C 598.312,579.715 611.115,583.039 615.052,570.727 Z" fill="#f5f5f5" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 691.828,574.123 L 771.472,574.123 C 771.472,574.123 768.424,585.055 756.904,581.455 C 756.904,581.455 759.304,596.167 750.808,597.871 C 742.312,599.575 739.612,588.379 739.612,588.379 C 735.646,592.873 729.476,594.733 723.688,593.179 C 718.003,591.698 713.583,587.228 712.168,581.527 C 712.168,581.527 697.984,589.651 691.828,574.123 Z" fill="#f5f5f5" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <rect x="306.736" y="238.088" width="96.887" height="191.963" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="306.736" y="238.088" width="79.27" height="191.963" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f0f0f0"/>
+  <rect x="304.648" y="426.92" width="100.115" height="3.131" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="304.648" y="433.184" width="100.115" height="3.131" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="306.736" y="430.052" width="95.927" height="3.131" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f0f0f0"/>
+  <rect x="314.26" y="403.641" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="315.568" y="403.641" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="336.808" y="403.641" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="338.116" y="403.641" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="359.356" y="403.641" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="360.664" y="403.641" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="314.26" y="381.38" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="315.568" y="381.38" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="336.808" y="381.38" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="338.116" y="381.38" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="359.356" y="381.38" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="360.664" y="381.38" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="314.26" y="340.616" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="315.568" y="340.616" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="336.808" y="340.616" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="338.116" y="340.616" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="359.356" y="340.616" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="360.664" y="340.616" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="314.26" y="318.356" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="315.568" y="318.356" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="336.808" y="318.356" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="338.116" y="318.356" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="359.356" y="318.356" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="360.664" y="318.356" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="314.26" y="273.056" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="315.568" y="273.056" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="336.808" y="273.056" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="338.116" y="273.056" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="359.356" y="273.056" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="360.664" y="273.056" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="314.26" y="250.796" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="315.568" y="250.796" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="336.808" y="250.796" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="338.116" y="250.796" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="359.356" y="250.796" width="14.891" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="360.664" y="250.796" width="13.57" height="15.119" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="306.736" y="369.344" width="96.887" height="1.402" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="306.736" y="299.672" width="96.887" height="1.402" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="688.9" y="236.733" width="95.723" height="232.93" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="688.9" y="236.733" width="68.459" height="232.93" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f0f0f0"/>
+  <rect x="695.956" y="438.152" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="438.152" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="438.152" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="438.152" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="695.956" y="414.872" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="414.872" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="414.872" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="414.872" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="695.956" y="385.124" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="385.124" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="385.124" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="385.124" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="695.956" y="368.024" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="368.024" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="368.024" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="368.024" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="695.956" y="339.932" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="339.932" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="339.932" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="339.932" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="695.956" y="322.844" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="322.844" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="322.844" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="322.844" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="695.956" y="292.268" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="292.268" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="292.268" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="292.268" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="695.956" y="269.696" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="697.648" y="269.696" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="725.427" y="269.696" width="25.475" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="727.12" y="269.696" width="23.782" height="12.371" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#0c0c0c" stroke="none"/>
+  </mask>
+  <g id="Group" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask)">
+   <rect x="688.9" y="405.128" width="95.723" height="2.122"/>
+  </g>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#0c0c0c" stroke="none"/>
+  </mask>
+  <g id="Group_1" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_1)">
+   <rect x="688.9" y="359.108" width="95.723" height="2.122"/>
+  </g>
+  <mask id="TranspMask_2">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#0c0c0c" stroke="none"/>
+  </mask>
+  <g id="Group_2" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_2)">
+   <rect x="688.9" y="312.68" width="95.723" height="2.122"/>
+  </g>
+  <rect x="684.388" y="469.112" width="100.235" height="7.438" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <mask id="TranspMask_3">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#0c0c0c" stroke="none"/>
+  </mask>
+  <g id="Group_3" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_3)">
+   <rect x="761.716" y="469.112" width="22.907" height="7.438"/>
+  </g>
+  <rect x="444.352" y="240.705" width="108.215" height="281.255" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="404.296" y="240.705" width="108.226" height="281.255" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f0f0f0"/>
+  <rect x="413.74" y="488.54" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="488.54" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="464.42" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="464.42" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="439.364" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="439.364" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="414.296" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="414.296" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="389.24" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="389.24" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="364.172" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="364.172" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="336.548" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="336.548" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="308.936" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="308.936" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="281.312" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="281.312" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="413.74" y="253.688" width="89.338" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="417.208" y="253.688" width="85.871" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="401.236" y="517.928" width="154.15" height="6.863" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="401.236" y="530.312" width="154.15" height="6.863" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="404.296" y="524.792" width="145.966" height="6.863" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f0f0f0"/>
+  <rect x="522.424" y="488.54" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="464.96" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="441.381" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="414.308" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="389.24" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="364.172" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="336.56" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="308.936" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="281.312" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="522.424" y="253.688" width="30.155" height="14.327" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="679.779" y="405.044" width="11.903" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="679.779" y="374.564" width="11.903" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="679.779" y="344.937" width="11.903" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="679.779" y="313.616" width="11.903" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="679.779" y="283.137" width="11.903" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e0e0e0"/>
+  <rect x="566.416" y="251.876" width="125.266" height="190.511" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#e6e6e6"/>
+  <rect x="566.427" y="251.876" width="104.098" height="190.511" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f0f0f0"/>
+  <rect x="575.788" y="405.032" width="84.647" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="575.788" y="374.564" width="84.647" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="575.788" y="344.085" width="84.647" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="575.788" y="313.616" width="84.647" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="575.788" y="283.137" width="84.647" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ebebeb"/>
+  <rect x="578.908" y="405.032" width="81.527" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="578.908" y="374.564" width="81.527" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="578.908" y="344.085" width="81.527" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="578.908" y="313.616" width="81.527" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <rect x="578.908" y="283.137" width="81.527" height="18.623" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <ellipse cx="551.584" cy="197.167" rx="232.667" ry="13.583" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#f5f5f5"/>
+  <path d="M 419.26,197.167 L 414.46,197.167" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+  <path d="M 405.388,197.167 L 282.808,197.167" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+  <path d="M 278.272,197.167 L 273.472,197.167" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+  <rect x="-69.239" y="-49.985" width="138.479" height="99.97" transform="translate(636.489 433.283) rotate(0.949712)" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2"/>
+  <mask id="TranspMask_4">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_4" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ffffff" mask="url(#TranspMask_4)">
+   <rect x="-41.861" y="-49.985" width="83.723" height="99.97" transform="translate(608.978 432.839) rotate(0.949471)"/>
+  </g>
+  <mask id="TranspMask_5">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_5" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ffffff" mask="url(#TranspMask_5)">
+   <rect x="-12.055" y="-3.359" width="24.111" height="6.718" transform="translate(650.633 473.175) rotate(1.14267)"/>
+  </g>
+  <mask id="TranspMask_6">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_6" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ffffff" mask="url(#TranspMask_6)">
+   <rect x="-12.053" y="-3.359" width="24.107" height="6.718" transform="translate(651.339 395.488) rotate(0.947896)"/>
+  </g>
+  <ellipse cx="679.407" cy="436.435" rx="14.146" ry="16.007" fill-rule="nonzero" stroke-linejoin="miter" stroke="#ffffff" stroke-width="1.2"/>
+  <path d="M 679.996,450.007 L 679.996,447.319" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 680.608,425.383 L 680.608,422.695" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 667.479,436.963 L 670.179,436.963" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 689.152,436.951 L 691.852,436.951" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 679.984,436.963 L 679.996,445.243" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#ffffff" stroke-width="0.6" stroke-linecap="round"/>
+  <path d="M 680.512,436.423 L 686.368,430.567" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#ffffff" stroke-width="0.6" stroke-linecap="round"/>
+  <path d="M 681.292,436.951 C 681.292,436.228 680.706,435.643 679.984,435.643 C 679.261,435.643 678.676,436.228 678.676,436.95 C 678.676,437.673 679.261,438.259 679.984,438.259 C 680.331,438.262 680.666,438.125 680.912,437.879 C 681.158,437.633 681.295,437.298 681.292,436.951 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ffffff" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_7">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_7" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ffffff" mask="url(#TranspMask_7)">
+   <ellipse cx="679.407" cy="436.435" rx="18.731" ry="20.242"/>
+  </g>
+  <path d="M 523.84,260.875 C 525.928,259.279 567.844,263.791 557.008,338.155 C 557.008,338.155 576.892,333.103 579.028,333.439 C 579.028,333.439 608.2,288.715 586.959,266.563 C 565.719,244.41 534.064,243.055 534.064,243.055 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_8">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_8" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_8)">
+   <path d="M 523.84,260.875 C 525.928,259.279 567.844,263.791 557.008,338.155 C 557.008,338.155 576.892,333.103 579.028,333.439 C 579.028,333.439 608.2,288.715 586.959,266.563 C 565.719,244.41 534.064,243.055 534.064,243.055 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 570.292,326.647 C 570.4,326.647 558.58,326.419 554.62,331.339 C 550.66,336.259 547.984,345.055 555.184,351.055 C 562.384,357.055 604.66,382.975 624.568,385.015 C 644.476,387.054 665.788,374.215 665.788,374.215 L 639.724,354.942 L 583.6,341.358 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 532.072,272.586 L 533.164,261.835 L 546.076,262.927 L 544.132,273.978 L 532.072,272.586 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ffc3bd" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 529.564,262.614 L 548.296,262.878 L 549.628,253.422 C 549.628,253.422 532.084,253.182 524.872,254.142 C 517.659,255.103 518.787,258.858 518.787,258.858 C 518.787,258.858 527.236,258.655 529.564,262.614 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <ellipse rx="50.026" ry="42.346" transform="translate(650.906 239.685) rotate(84.1903)" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2"/>
+  <path d="M 621.472,392.707 C 621.472,392.707 623.415,348.103 597.472,346.831 C 571.528,345.559 543.651,348.403 543.651,348.403 L 551.824,268.255 L 527.5,266.755 C 527.5,266.755 510.039,334.747 507.292,351.835 C 504.544,368.922 506.931,381.007 524.968,388.591 C 543.004,396.175 621.472,392.707 621.472,392.707 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 476.284,251.191 L 508.599,345.055 L 551.8,392.743 C 551.8,392.743 514.096,392.599 495.975,382.183 C 477.855,371.767 477.184,359.25 473.86,344.359 C 470.535,329.467 457.203,258.979 457.203,258.979 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_9">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#b3b3b3" stroke="none"/>
+  </mask>
+  <g id="Group_9" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_9)">
+   <path d="M 621.472,392.707 C 621.472,392.707 581.32,394.495 551.872,392.707 L 551.872,392.707 C 551.872,392.707 514.168,392.563 496.047,382.147 C 477.927,371.73 477.184,359.25 473.86,344.359 C 470.535,329.467 457.203,258.979 457.203,258.979 L 476.283,251.191 L 508.599,345.055 L 508.599,345.055 C 514.036,319.039 527.5,266.803 527.5,266.803 L 551.824,268.255 L 543.64,348.355 C 543.64,348.355 571.503,345.511 597.459,346.783 C 623.415,348.055 621.472,392.707 621.472,392.707 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 555.184,465.055 L 540.268,463.243 C 540.268,463.243 537.676,435.823 535.264,430.495 C 535.264,430.495 489.388,424.195 470.596,424.735 L 461.056,418.255 L 460.72,406.987 L 470.068,406.711 L 473.08,413.851 C 473.08,413.851 479.392,414.127 480.856,417.679 C 480.856,417.679 529.6,405.907 547.552,419.347 C 547.576,419.335 558.4,435.235 555.184,465.055 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ffc3bd" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 597.928,538.483 C 597.928,538.483 602.596,532.483 600.82,527.287 C 599.823,524.273 597.325,521.998 594.232,521.287 C 594.232,521.287 593.356,512.971 588.448,512.731 C 583.54,512.491 585.184,531.055 585.184,531.055 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 560.14,392.503 L 556.864,446.107 L 536.536,459.618 C 536.536,459.618 543.184,483.055 555.904,487.027 C 568.624,490.999 596.368,500.107 613.192,495.583 C 630.015,491.059 628.084,471.211 625.192,456.487 L 621.951,455.719 C 621.951,455.719 621.447,397.699 621.423,392.707 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 596.715,492.271 C 590.056,485.827 576.472,481.986 572.715,485.191 C 568.959,488.395 573.7,491.335 577.228,494.959 C 579.136,496.951 579.076,500.683 578.632,503.659 C 578.398,505.158 578.053,506.638 577.6,508.087 C 565.132,508.771 559.96,514.603 559.444,524.887 C 558.928,535.171 563.584,547.111 563.584,547.111 L 572.392,554.623 C 572.392,554.623 584.392,552.823 593.992,546.223 C 599.704,542.335 598.012,534.679 595.648,529.027 C 594.646,526.621 593.442,524.304 592.048,522.103 C 590.704,508.027 596.715,492.271 596.715,492.271 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ffc3bd" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 566.379,522.055 C 566.379,522.055 571.179,521.827 573.279,524.803" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#263238" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 574.024,534.199 C 574.024,533.287 573.472,532.567 572.824,532.579 C 572.176,532.59 571.708,533.347 571.732,534.258 C 571.756,535.17 572.284,535.89 572.932,535.879 C 573.58,535.867 574.06,535.111 574.024,534.199 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 563.079,533.911 C 563.079,532.999 562.528,532.279 561.879,532.291 C 561.231,532.303 560.764,533.059 560.787,533.971 C 560.811,534.883 561.339,535.603 561.987,535.591 C 562.636,535.579 563.115,534.811 563.079,533.911 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 566.884,526.459 L 566.392,533.815 L 562.876,526.831 C 564,525.875 565.602,525.726 566.884,526.458 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ed847e" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 573.448,539.959 C 575.348,540.481 577.348,539.552 578.176,537.763" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#263238" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 559.696,538.603 C 559.696,538.603 561.904,541.003 564.496,540.391" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#263238" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 595.732,529.027 L 595.732,529.027 C 582.004,528.535 580.3,544.099 580.3,544.099 C 573.508,540.499 563.632,547.099 563.632,547.099 L 572.44,554.635 C 572.44,554.635 584.44,552.811 594.04,546.235 C 599.788,542.335 598.096,534.655 595.732,529.027 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 559.215,542.539 C 559.215,542.539 552.112,547.267 555.244,550.675 C 558.376,554.083 577.564,547.603 591.903,539.659 C 591.903,539.659 559.059,561.631 550.131,554.683 C 542.751,548.935 559.119,540.955 558.627,540.967 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 599.284,544.147 C 599.264,541.658 598.792,539.194 597.892,536.875 L 565.636,552.475 C 566.972,554.018 568.573,555.31 570.364,556.291 C 572.273,557.383 574.348,558.153 576.508,558.571 C 578.797,559.008 581.141,559.089 583.456,558.811 C 595.252,557.455 599.344,548.383 599.284,544.147 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 525.184,400.663 C 523.084,398.467 495.928,404.095 491.188,401.575 C 489.184,400.518 488.308,396.775 486.292,392.671 L 486.292,392.671 C 483.544,387.091 478.66,380.971 465.892,380.563 C 443.716,379.855 446.392,402.355 444.64,409.663 C 444.64,409.663 423.64,413.491 422.536,417.175 C 421.432,420.858 422.788,421.411 422.788,421.411 C 422.788,421.411 448.696,416.611 453.712,423.163 C 454.683,424.112 455.822,424.873 457.072,425.407 L 457.072,425.407 C 459.951,426.672 463.048,427.369 466.192,427.459 C 475.324,427.939 486.46,425.371 489.58,419.587 C 495.916,407.791 523.084,410.443 525.58,407.347 C 528.076,404.251 527.284,402.859 525.184,400.663 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 456.436,385.291 C 456.436,385.291 420.004,334.891 450.004,257.311" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#263238" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 504.52,359.107 L 504.52,359.107 C 504.52,359.107 504.52,359.011 504.52,358.819 C 504.52,358.627 504.52,358.519 504.52,358.303 L 504.52,358.183 C 504.086,353.329 503.284,348.515 502.12,343.783 C 500.464,336.787 498.267,330.127 496.456,324.775 C 488.776,302.035 489.664,277.531 489.664,277.531 C 487.12,280.699 482.464,282.955 476.643,284.539 C 455.451,290.359 419.475,287.239 419.475,287.239 C 412.419,311.995 414.939,350.742 421.96,372.439 C 428.98,394.135 448.443,389.239 448.443,389.239 C 448.443,389.239 468.987,388.639 471.567,388.915 C 476.289,389.487 481.069,389.39 485.764,388.627 C 501.628,385.723 505.444,373.183 504.52,359.107 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 662.692,264.655 C 626.692,232.159 557.2,228.75 505.492,232.35 L 476.524,284.466 L 464.788,305.574 L 502.492,356.394 L 504.484,359.071 C 504.484,359.071 504.484,358.975 504.484,358.783 C 504.484,358.591 504.484,358.483 504.484,358.267 L 504.484,358.147 C 503.968,349.087 500.631,276.379 527.284,258.547 L 527.5,258.391 C 531.106,256.06 535.29,254.78 539.584,254.694 C 588.484,253.279 587.115,317.095 574.684,330.763 L 659.536,347.815 C 659.536,347.815 676.288,305.635 662.692,264.655 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 568.312,344.599 C 568.312,344.599 560.356,337.999 564.46,329.142 C 568.564,320.286 608.128,337.483 623.704,340.614 C 639.28,343.746 657.304,346.806 665.056,348.402 C 672.808,349.998 672.136,372.234 665.8,374.202 C 659.464,376.171 597.4,365.202 587.103,359.179 C 580.305,355.05 574,350.158 568.312,344.599 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 588.232,523.531 C 586.672,525.209 586.478,527.742 587.764,529.639 C 589.684,532.518 593.559,537.091 597.279,533.671 C 602.487,528.871 593.595,520.147 589.911,522.259 C 589.294,522.601 588.729,523.03 588.232,523.531 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ffc3bd" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_10">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#333333" stroke="none"/>
+  </mask>
+  <g id="Group_10" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_10)">
+   <path d="M 559.215,542.539 C 559.215,542.539 552.112,547.267 555.244,550.675 C 556.636,552.187 560.8,551.875 566.428,550.267 C 570.047,549.292 573.592,548.061 577.036,546.583 C 581.979,544.435 587.236,541.687 591.904,539.659 C 591.904,539.659 559.06,561.631 550.132,554.683 C 542.752,548.935 558.1,541.483 558.64,540.979 L 558.904,541.951 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 562.588,544.591 C 562.588,544.591 555.388,543.391 560.356,535.639 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 569.488,549.319 C 569.488,549.319 558.628,553.135 555.604,550.975 C 552.58,548.815 555.748,544.699 559.204,542.575 L 561.976,542.215 L 563.608,547.135 L 567.831,547.651 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_11">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_11" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#ffffff" mask="url(#TranspMask_11)">
+   <path d="M 584.284,555.187 L 581.679,551.335 L 570.364,556.255 C 572.273,557.347 574.348,558.117 576.508,558.535 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <mask id="TranspMask_12">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#191919" stroke="none"/>
+  </mask>
+  <g id="Group_12" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_12)">
+   <path d="M 581.764,509.143 C 581.015,507.151 579.94,505.298 578.584,503.659 C 578.35,505.158 578.005,506.638 577.551,508.087 C 579.007,508.188 580.433,508.546 581.764,509.143 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 474.184,403.615 C 473.704,395.299 470.104,388.495 465.688,386.815 L 465.688,386.815 C 464.923,386.52 464.105,386.393 463.288,386.443 C 457.84,386.755 453.88,394.927 454.431,404.683 C 454.983,414.438 459.856,422.094 465.303,421.783 C 467.524,421.662 469.479,420.235 471.003,417.943 L 471.003,417.943 C 473.248,414.655 474.508,409.399 474.184,403.615 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#f5f5f5" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 474.184,403.615 C 473.704,395.299 470.104,388.495 465.688,386.815 L 465.688,386.815 C 460.648,387.102 456.988,394.65 457.503,403.615 C 458.019,412.579 462.507,419.694 467.547,419.407 C 468.846,419.31 470.075,418.782 471.039,417.906 L 471.039,417.907 C 473.248,414.655 474.508,409.399 474.184,403.615 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ffffff" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 668.668,285.739 C 659.392,292.255 623.5,298.651 623.5,298.651 C 601.695,298.651 582.556,279.031 579.915,252.979 C 577.756,231.787 587.115,212.551 602.2,203.779 C 602.2,203.779 603.459,203.251 605.572,202.423 C 613.564,199.267 633.844,191.623 645.831,189.943" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2"/>
+  <mask id="TranspMask_13">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_13" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_13)">
+   <ellipse rx="50.026" ry="42.346" transform="translate(650.906 239.685) rotate(84.1903)"/>
+  </g>
+  <ellipse rx="50.026" ry="42.346" transform="translate(464.355 241.285) rotate(84.1903)" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2"/>
+  <path d="M 490.24,281.886 L 468.784,191.803 C 465.653,191.295 462.47,191.203 459.316,191.527 L 459.076,191.527 C 454.96,192.583 456.796,191.442 452.668,192.811 C 442.168,196.279 426.916,202.411 426.916,202.411 C 410.752,210.27 401.62,229.387 403.84,251.227 C 406.528,277.686 425.512,297.45 447.856,295.83 C 447.856,295.83 458.464,293.874 469.384,291.03 C 474.184,289.83 478.984,288.402 482.932,286.914 L 482.932,286.914 C 485.545,285.513 487.996,283.827 490.24,281.886 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_14">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_14" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_14)">
+   <path d="M 506.488,237.055 C 504.088,213.355 488.044,194.958 468.76,191.851 C 465.629,191.343 462.446,191.251 459.291,191.575 L 459.052,191.575 C 454.658,192.049 450.388,193.322 446.452,195.331 C 430.24,203.551 419.98,223.519 422.224,245.599 C 425.02,273.067 446.103,293.406 469.36,291.078 L 469.42,291.078 C 474.141,290.602 478.724,289.203 482.907,286.962 L 482.908,286.963 C 485.522,285.557 487.973,283.867 490.216,281.922 C 501.699,271.939 508.384,255.186 506.488,237.055 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 500.644,268.614 C 499.94,269.737 499.137,270.793 498.244,271.77 C 492.88,279.091 480.616,281.827 472.588,281.178 C 466.433,280.578 460.524,278.458 455.392,275.01 C 449.535,271.218 445.348,265.41 439.539,261.426 C 428.523,253.818 411.807,254.034 400.743,261.87 C 400.12,262.314 399.526,262.799 398.967,263.322 C 397.84,264.496 397.088,265.979 396.807,267.582 C 396.384,269.584 396.538,271.665 397.251,273.582 C 399.651,280.326 407.655,286.254 412.707,289.866 C 422.95,297.093 434.997,301.334 447.507,302.118 C 483.184,304.578 498.399,274.111 500.644,268.614 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_15">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_15" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_15)">
+   <path d="M 498.172,267.655 C 490.504,278.719 480.664,281.827 472.636,281.178 C 466.481,280.578 460.572,278.458 455.44,275.01 C 449.584,271.218 445.396,265.41 439.588,261.426 C 428.571,253.818 411.856,254.034 400.792,261.87 C 400.168,262.314 399.574,262.799 399.016,263.322 C 397.888,264.496 397.136,265.979 396.855,267.582 C 396.432,269.584 396.586,271.665 397.299,273.582 C 401.007,269.298 411.807,258.978 426.435,263.982 C 444.675,270.282 449.128,289.002 468.628,288.834 C 484.12,288.655 493.66,276.655 498.172,267.655 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <mask id="TranspMask_16">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_16" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_16)">
+   <path d="M 417.928,293.167 C 423.131,296.864 428.985,299.547 435.183,301.075 C 441.388,302.654 447.813,303.181 454.192,302.635 C 460.56,302.021 466.796,300.435 472.683,297.93 L 474.868,296.97 L 477.004,295.902 C 478.444,295.23 479.8,294.39 481.192,293.622 C 482.584,292.855 483.868,291.906 485.2,291.054 C 486.532,290.202 487.78,289.206 489.052,288.258 C 483.818,291.765 478.232,294.713 472.384,297.055 C 466.547,299.396 460.397,300.864 454.131,301.41 C 447.879,302.008 441.572,301.603 435.448,300.21 C 432.373,299.529 429.359,298.598 426.435,297.427 C 423.469,296.284 420.619,294.858 417.928,293.167 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <mask id="TranspMask_17">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_17" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_17)">
+   <path d="M 456.784,301.747 C 455.287,306.751 454.389,311.915 454.108,317.13 C 453.712,322.327 453.628,327.547 453.736,332.731 C 453.844,337.915 454.204,343.147 454.684,348.331 L 455.56,356.083 C 455.944,358.663 456.28,361.243 456.76,363.811 L 455.667,348.211 L 455.235,340.435 C 455.164,337.842 455.007,335.25 454.996,332.658 C 454.792,327.474 454.888,322.29 455.08,317.058 C 455.164,314.466 455.368,311.886 455.632,309.306 C 455.842,306.763 456.227,304.237 456.784,301.747 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <mask id="TranspMask_18">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_18" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_18)">
+   <path d="M 527.224,258.655 C 502.167,274.77 501.171,316.351 502.024,343.783 C 502.18,348.499 502.371,352.783 502.516,356.467 C 502.778,360.154 502.778,363.855 502.516,367.543 C 499.984,386.383 485.584,388.65 485.584,388.65 L 485.644,388.65 C 501.592,385.722 505.408,373.182 504.484,359.107 L 504.484,359.107 C 504.484,359.107 504.484,359.011 504.484,358.819 C 504.484,358.627 504.484,358.519 504.484,358.303 L 504.484,358.183 C 503.944,349.123 500.608,276.414 527.224,258.655 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <mask id="TranspMask_19">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#333333" stroke="none"/>
+  </mask>
+  <g id="Group_19" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_19)">
+   <path d="M 525.184,400.663 C 523.084,398.467 495.928,404.095 491.188,401.575 C 489.184,400.518 488.308,396.775 486.292,392.671 L 486.292,392.671 L 486.292,392.671 C 480.628,383.671 472.66,382.255 472.167,382.183 C 481.671,389.383 484.324,406.711 479.607,417.667 C 474.891,428.623 458.007,425.779 457.047,425.455 C 459.927,426.72 463.024,427.417 466.167,427.507 C 475.299,427.987 486.435,425.419 489.556,419.635 C 495.892,407.839 523.06,410.491 525.556,407.395 C 528.052,404.299 527.284,402.859 525.184,400.663 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 503.92,411.139 C 502.269,408.092 501.61,404.606 502.035,401.167 L 525.04,398.575 C 527.419,401.329 528.483,404.981 527.955,408.583 C 527.955,408.583 505.168,410.875 503.92,411.139 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 434.068,411.991 C 434.068,411.991 431.776,416.863 434.524,419.947 C 428.38,420.499 424.576,421.147 420.616,421.723 C 420.028,419.935 419.74,418.219 421.816,415.495 C 423.892,412.771 434.068,411.991 434.068,411.991 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 421.288,381.499 C 417.303,375.007 413.896,364.615 413.596,348.019" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#aa0927" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 434.404,392.203 C 431.505,391.53 428.84,390.092 426.687,388.039" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke="#aa0927" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 613.36,454.759 L 598.216,452.911 C 598.216,452.911 595.576,425.083 593.128,419.671 C 593.128,419.671 546.556,413.263 527.464,413.827 L 517.78,407.251 L 517.444,395.803 L 526.936,395.527 L 529.996,402.727 C 529.996,402.727 536.404,403.003 537.88,406.615 C 537.88,406.615 587.368,394.615 605.596,408.295 C 605.584,408.343 616.588,424.483 613.36,454.759 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#ffc3bd" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_20">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#333333" stroke="none"/>
+  </mask>
+  <g id="Group_20" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#fafafa" mask="url(#TranspMask_20)">
+   <path d="M 490.048,240.655 C 489.616,225.559 479.728,213.606 467.956,213.942 C 466.373,213.99 464.806,214.26 463.3,214.746 C 453.867,217.747 447.075,228.87 447.447,241.891 C 447.819,254.491 454.767,264.906 463.899,267.799 C 465.724,268.385 467.636,268.657 469.551,268.603 C 481.324,268.255 490.492,255.703 490.048,240.655 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 479.212,240.655 C 478.84,227.767 472.012,217.17 463.3,214.711 C 453.868,217.711 447.076,228.835 447.448,241.855 C 447.82,254.455 454.768,264.87 463.9,267.763 C 472.972,265.303 479.584,253.999 479.212,240.655 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_21">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#333333" stroke="none"/>
+  </mask>
+  <g id="Group_21" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#fafafa" mask="url(#TranspMask_21)">
+   <path d="M 674.944,239.455 C 674.5,224.359 664.612,212.395 652.851,212.742 C 651.269,212.783 649.7,213.054 648.195,213.546 C 638.751,216.547 631.959,227.659 632.344,240.691 C 632.703,253.278 639.651,263.706 648.784,266.599 C 650.608,267.185 652.52,267.457 654.436,267.403 C 666.208,267.055 675.376,254.527 674.944,239.455 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 664.108,239.455 C 663.723,226.578 656.908,215.983 648.195,213.523 C 638.751,216.523 631.959,227.635 632.344,240.667 C 632.703,253.255 639.651,263.683 648.784,266.575 C 657.868,264.114 664.492,252.811 664.108,239.455 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#263238" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 693.496,279.223 C 693.7,264.379 671.104,254.551 633.292,248.359 C 623.099,246.566 612.683,246.445 602.452,247.999 C 585.652,250.771 577.444,257.875 577.444,257.875 C 577.444,257.875 581.716,309.175 623.992,315.679 C 652.792,320.095 674.464,308.479 685.456,295.963 C 690.628,290.083 693.436,283.975 693.496,279.223 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask_22">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_22" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_22)">
+   <path d="M 693.496,279.223 C 693.7,264.379 671.104,254.551 633.292,248.359 C 623.099,246.566 612.683,246.445 602.452,247.999 C 604.264,261.931 612.4,298.471 647.764,302.263 C 663.808,303.991 676.192,300.751 685.456,295.963 C 690.628,290.083 693.436,283.975 693.496,279.223 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <mask id="TranspMask_23">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="#4c4c4c" stroke="none"/>
+  </mask>
+  <g id="Group_23" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" stroke-width="1.2" fill="#000000" mask="url(#TranspMask_23)">
+   <path d="M 579.892,257.647 C 580.669,264.63 582.335,271.485 584.848,278.047 C 587.318,284.676 590.729,290.916 594.976,296.575 C 597.121,299.387 599.532,301.987 602.175,304.339 C 604.795,306.728 607.682,308.806 610.78,310.53 C 616.943,314.006 623.773,316.137 630.82,316.782 C 627.367,316.204 623.97,315.329 620.668,314.167 C 619,313.663 617.428,312.883 615.868,312.223 C 614.302,311.473 612.776,310.644 611.296,309.739 C 609.784,308.875 608.392,307.831 606.964,306.859 C 605.536,305.887 604.216,304.735 602.956,303.523 C 600.393,301.194 598.059,298.626 595.984,295.855 C 591.768,290.305 588.332,284.204 585.772,277.723 C 584.442,274.494 583.296,271.193 582.339,267.835 C 581.321,264.49 580.504,261.088 579.892,257.647 Z" marker-start="none" marker-end="none"/>
+  </g>
+  <path d="M 523.156,274.591 L 525.652,266.119 L 551.824,268.303 L 552.172,280.147 L 523.156,274.591 Z" fill-rule="nonzero" stroke-linejoin="miter" stroke="none" fill="#aa0927" stroke-width="1.2" marker-start="none" marker-end="none"/>
+  <path d="M 678.976,332.37 L 736.564,334.711" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+  <path d="M 755.596,345.199 L 764.152,345.547" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+  <path d="M 706.576,343.206 L 749.032,344.935" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+  <path d="M 736.288,313.399 L 771.868,314.839" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+  <path d="M 714.292,312.499 L 729.796,313.135" fill="none" fill-rule="nonzero" stroke-linejoin="miter" stroke-linecap="round" stroke="#aa0927" stroke-width="1.2"/>
+ </g>
+</svg>
