@@ -104,7 +104,8 @@
 import { defineComponent } from 'vue';
 import { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, menuController, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText } from '@ionic/vue';
 import { apps, map, chatbox, settings, ticket, helpCircle, logOut, alertCircle, warning, menu, reader, checkmarkCircle, location, time, calendar, calendarClear, navigate, person, timerOutline } from 'ionicons/icons';
-import { lStore, axios, formatDateString,dateFormat,openToast } from '@/functions'; 
+import { lStore, axios, formatDateString,dateFormat,openToast,calcFlyDist } from '@/functions'; 
+import { Geolocation } from '@capacitor/geolocation';
 
 
 export default defineComponent({
@@ -254,21 +255,30 @@ export default defineComponent({
                     console.log(this.upcoming);
                     this.upcoming = this.upcoming.sort((a,b)=>{
                         return new Date(a.schedules_dates+' '+ a.schedules_timestart) - new Date(b.schedules_dates+' '+ b.schedules_timestart)
-                    })
+                    });
                 }
                 console.log(this.upcoming)
             }
 
         },
-        ClockOut(){
-            let ClockinTime = new Date().toLocaleTimeString()
-            axios.post('assign/update?id='+this.current.assignschedules_id,null,{ assignschedules_timeout: ClockinTime, assignschedules_status: 1}).then(()=>{
-                openToast('Successfully Clockout', 'primary')
-            })
-            setTimeout(()=>{
-                window.location.reload();
-            },3000);
-        }
+        async ClockOut(){
+            const coordinates = await Geolocation.getCurrentPosition({enableHighAccuracy:true});
+            if(calcFlyDist([this.current.facility_location_long,this.current.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.lattitude]) <= 0.2)//longitude lattitude
+            {
+                let ClockinTime = new Date().toLocaleTimeString()
+                axios.post('assign/update?id='+this.current.assignschedules_id,null,{ assignschedules_timeout: ClockinTime, assignschedules_status: 1,assignschedules_timeoutlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeoutlong: coordinates.coords.longitude, assignschedules_timeoutlat: coordinates.coords.latitude}).then(()=>{
+                    openToast('Successfully Clockout', 'primary')
+                })
+                setTimeout(()=>{
+                    window.location.reload();
+                },3000);
+            }
+            else
+            {
+                openToast('You need to be near on the facility to clockout', 'danger');
+                return;
+            }
+        },
     }
 });
 </script>

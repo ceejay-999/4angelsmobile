@@ -25,11 +25,12 @@
 import { defineComponent } from 'vue';
 import { IonContent, IonPage, IonHeader, IonText,IonIcon,IonButtons,IonButton,actionSheetController } from '@ionic/vue';
 import { apps, map, chatbox, settings, ticket, helpCircle, logOut, alertCircle, warning, menu, reader, checkmarkCircle, location, time, calendar, calendarClear, navigate, person, timerOutline,camera } from 'ionicons/icons';
-import { lStore, axios, formatDateString,ImageDataConverter,openToast } from '@/functions';
+import { lStore, axios, formatDateString,ImageDataConverter,openToast,calcFlyDist } from '@/functions';
 import axiosA from 'axios';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import BackButton from '@/views/BackButton';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
+import { Geolocation } from '@capacitor/geolocation';
 defineCustomElements(window);
 
 
@@ -129,8 +130,7 @@ export default defineComponent({
                         this.loadImage = true;
                         let userFromLStore = lStore.get('user_info')
                         userFromLStore.assignschedules_selfie = image.dataUrl;
-                        lStore.set('user_info', userFromLStore);
-                        window.location.reload();
+         
                     })
                 }
 
@@ -138,15 +138,29 @@ export default defineComponent({
 
             
         },
-        ClockIn()
+        async ClockIn()
         {
-            let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString();
-            axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2}).then(()=>{
-                console.log('successfully save');
-            })
-            openToast('Successfully Clockin', 'primary')
-            this.$router.back();
-        }
+            const coordinates = await Geolocation.getCurrentPosition({enableHighAccuracy:true});
+            if(calcFlyDist([this.readytoclockinsched.facility_location_long,this.readytoclockinsched.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.lattitude]) <= 0.2)
+            {
+                let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString();
+                axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
+                    console.log('successfully save');
+                })
+                openToast('Successfully Clockin', 'primary')
+                this.$router.back();
+            }
+            else
+            {
+                openToast('You need to be near on the facility to clockin', 'danger');
+                return;
+            }
+        },
+        async mapFind(long,lat){
+            let accessToken = "pk.eyJ1Ijoic3BlZWR5cmVwYWlyIiwiYSI6ImNsNWg4cGlzaDA3NTYzZHFxdm1iMTJ2cWQifQ.j_XBhRHLg-CcGzah7uepMA";
+            let returnVal = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json?access_token=${accessToken}`)
+            return returnVal.data.features[0].place_name;
+        },
     }
 });
 </script>
