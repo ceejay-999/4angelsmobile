@@ -9,6 +9,8 @@ import ErrorPage from '../views/ErrorPage.vue';
 import DashboardView from '@/views/EmployeeView/Dashboard.vue';
 import EmployeeTabs from '@/views/EmployeeView/EmployeeTabs.vue';
 import TimeClock from '@/views/EmployeeView/TimeClockView.vue';
+import EmployeeProfile from '@/views/EmployeeView/Profile.vue';
+
 
 
 
@@ -42,6 +44,13 @@ const routes = [
       {
         path: '/employee/dashboard',
         component: DashboardView,
+        beforeEnter: () => {
+          if (!lStore.isset('user_token')) return '/login';
+        },
+      },
+      {
+        path: '/employee/profile',
+        component: EmployeeProfile,
         beforeEnter: () => {
           if (!lStore.isset('user_token')) return '/login';
         },

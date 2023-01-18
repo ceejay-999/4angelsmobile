@@ -34,7 +34,7 @@
                 </ion-buttons>
             </ion-toolbar>
             <ion-toolbar>
-                <ion-text class="ion-padding-start ion-margin-top" color="primary">{{ user.employee_firstname }} {{ user.employee_lastname }}</ion-text>
+                <ion-text class="ion-padding-start ion-margin-top" color="primary">Hello {{ user.employee_firstname }} {{ user.employee_lastname }}</ion-text>
                 <p class="ion-padding-start">{{ getMonthToday }} {{ new Date().getDate() }}, {{ new Date().getFullYear() }}</p>
             </ion-toolbar>
         </ion-header>

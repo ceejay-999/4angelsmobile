@@ -14,11 +14,11 @@
 
                 <ion-tab-button tab="timesheets" href="/employee/timesheets">
                     <ion-icon :icon="time" />
-                </ion-tab-button>
+                </ion-tab-button> -->
 
                 <ion-tab-button tab="profile" href="/employee/profile">
                     <ion-icon :icon="person" />
-                </ion-tab-button> -->
+                </ion-tab-button>
 
             </ion-tab-bar>
         </ion-tabs>
