@@ -122,15 +122,20 @@ export default defineComponent({
                     return;
                 }
                 if(res.data.action == 'confirm') {
+                    openToast('Saving Image', 'tertiary')
                     axiosA({
                         method:'post',
                         url: 'https://4angelshc.com/mobile/assign/update?id='+this.readytoclockinsched.assignschedules_id,
                         data : form
                     }).then(()=>{
+                        console.log('aw');
                         this.loadImage = true;
                         let userFromLStore = lStore.get('user_info')
                         userFromLStore.assignschedules_selfie = image.dataUrl;
-         
+                        openToast('Successfully Added Image', 'primary')
+                        setTimeout(()=>{
+                            this.$router.go(0);
+                        },2000);
                     })
                 }
 
@@ -141,14 +146,16 @@ export default defineComponent({
         async ClockIn()
         {
             const coordinates = await Geolocation.getCurrentPosition({enableHighAccuracy:true});
+            console.log(calcFlyDist([this.readytoclockinsched.facility_location_long,this.readytoclockinsched.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]));
+            console.log(await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude))
             if(calcFlyDist([this.readytoclockinsched.facility_location_long,this.readytoclockinsched.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]) <= 0.2)
             {
                 let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString();
                 axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
                     console.log('successfully save');
+                    openToast('Successfully Clockin', 'primary')
+                    this.$router.push('employee/dashboard');
                 })
-                openToast('Successfully Clockin', 'primary')
-                this.$router.back();
             }
             else
             {

@@ -29,7 +29,8 @@
                 <ion-menu-button slot="start"></ion-menu-button>
                 <ion-buttons slot="end">
                     <ion-avatar @click="$router.push('/employee/profile')">
-                        <img :src="user.employee_profilepicture"/>
+                        <img :src="user.employee_profilepicture" v-if="user.employee_profilepicture != 'https://www.4angelshc.com/mobile/filesystem/'"/>
+                        <img src="../../images/profile.svg" v-else/>
                     </ion-avatar>
                 </ion-buttons>
             </ion-toolbar>
@@ -270,7 +271,7 @@ export default defineComponent({
                     openToast('Successfully Clockout', 'primary')
                 })
                 setTimeout(()=>{
-                    window.location.reload();
+                    this.$router.go(0);
                 },3000);
             }
             else
