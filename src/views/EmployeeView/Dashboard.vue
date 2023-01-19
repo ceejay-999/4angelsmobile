@@ -147,12 +147,15 @@ export default defineComponent({
             getMonthToday: '',
             fiveminutes: 0,
             current:{},
-            timein:lStore.get('time'),
+            timein: '',
         }
     },
     created() {
         this.clear();
         this.user = lStore.get('user_info');
+    },
+    updated(){
+        this.timein = lStore.get('time');
     },
     mounted() {
         const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];

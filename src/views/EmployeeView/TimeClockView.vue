@@ -14,7 +14,7 @@
                 </ion-buttons>
             </div>
             <div>
-                <ion-button @click="ClockIn">
+                <ion-button @click="ClockIn()">
                     continue
                 </ion-button>
             </div>
