@@ -155,10 +155,27 @@ export default defineComponent({
                 if(calcFlyDist([this.readytoclockinsched.facility_location_long,this.readytoclockinsched.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]) <= 0.2)
                 {
                     let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString();
-                    axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
-                        openToast('Successfully Clockin', 'primary')
-                        this.$router.push('employee/dashboard');
-                    })
+                    if(new Date(this.readytoclockinsched.schedules_dates+' '+ClockinTime).getTime() <= new Date(this.readytoclockinsched.schedules_dates+' '+this.readytoclockinsched.schedules_timestart).getTime() && this.readytoclockinsched.assignschedules_timein != null) // Clock in On Time
+                    {
+                        axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 6,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
+                            openToast('Successfully Clockin', 'primary')
+                            this.$router.push('employee/dashboard');
+                        })
+                    }
+                    if(new Date(this.readytoclockinsched.schedules_dates+' '+ClockinTime).getTime() > (new Date(this.readytoclockinsched.schedules_dates+' '+this.readytoclockinsched.schedules_timestart).getTime()+1*60000) && this.readytoclockinsched.assignschedules_timein != null) // Clock in Late
+                    {
+                        axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 7,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
+                            openToast('Successfully Clockin', 'primary')
+                            this.$router.push('employee/dashboard');
+                        })
+                    }
+                    if(new Date(this.readytoclockinsched.schedules_dates+' '+ClockinTime).getTime() > (new Date(this.readytoclockinsched.schedules_dates+' '+this.readytoclockinsched.schedules_timestart).getTime()+1*60000) && this.readytoclockinsched.assignschedules_timein == null) // Missing Clockin
+                    {
+                        axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 8,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
+                            openToast('Successfully Clockin', 'primary')
+                            this.$router.push('employee/dashboard');
+                        })
+                    }
                 }
                 else
                 {

@@ -245,7 +245,7 @@ export default defineComponent({
             if(resp.data != null && resp.data.success) {
                 //Getting Upcoming schedules
                 resp.data.result.forEach(element => {
-                    if(element.assignschedules_status == 2 && element.assignschedules_timeout == null)
+                    if(element.assignschedules_status > 5 && element.assignschedules_status < 10 && element.assignschedules_timeout == null)
                     {
                         this.current = element;
                     }
