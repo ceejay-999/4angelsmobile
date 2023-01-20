@@ -241,7 +241,6 @@ export default defineComponent({
             let weekDateArr = weekDate.split('/');
             let weekDateString = formatDateString(weekDateArr[2]+'-'+weekDateArr[0]+'-'+weekDateArr[1]).replaceAll(' ','');
             let resp = await axios.post(`schedule?_joins=assignschedules,assigndesignation,facility,role&_on=assignschedules_scheduleid=schedules_id,assigndesignation_id=assignschedules_assigndesignationid,schedules_facilityid=facility_id,role_id=assigndesignation_roleid&_GTE_schedules_dates=${currentDateString}&_LSE_schedules_dates=${weekDateString}&_batch=true&assigndesignation:assigndesignation_employeeid=${lStore.get('user_id')}&_orderby=dates,schedules__timestart_ASC`);
-            console.log(resp.data.result);
             if(resp.data == null || !resp.data.success) return;
             if(resp.data != null && resp.data.success) {
                 //Getting Upcoming schedules
@@ -254,14 +253,12 @@ export default defineComponent({
                 if(Object.keys(this.current).length == 0)
                 {                    
                     this.upcoming = resp.data.result.filter(el =>{
-                        return new Date(el.schedules_dates).toLocaleDateString() == new Date().toLocaleDateString() && el.assignschedules_timein == null;//add condition if the start time and end time kay humana kay dapat di makita sa schedule
+                        return new Date(el.schedules_dates).toLocaleDateString() == new Date().toLocaleDateString() && el.assignschedules_timein == null && new Date(new Date(el.schedules_dates).toLocaleDateString()+ ' '+ new Date(new Date(el.schedules_dates).toLocaleDateString()+' '+el.schedules_timeend).toLocaleTimeString()).getTime() >= new Date(new Date().toLocaleDateString()+' '+new Date().toLocaleTimeString()).getTime();
                     })
-                    console.log(this.upcoming);
                     this.upcoming = this.upcoming.sort((a,b)=>{
                         return new Date(a.schedules_dates+' '+ a.schedules_timestart) - new Date(b.schedules_dates+' '+ b.schedules_timestart)
                     });
                 }
-                console.log(this.upcoming)
             }
 
         },

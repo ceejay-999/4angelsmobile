@@ -10,6 +10,7 @@ import DashboardView from '@/views/EmployeeView/Dashboard.vue';
 import EmployeeTabs from '@/views/EmployeeView/EmployeeTabs.vue';
 import TimeClock from '@/views/EmployeeView/TimeClockView.vue';
 import EmployeeProfile from '@/views/EmployeeView/Profile.vue';
+import SchedulesView from '@/views/EmployeeView/Schedules.vue';
 
 
 
@@ -51,6 +52,13 @@ const routes = [
       {
         path: '/employee/profile',
         component: EmployeeProfile,
+        beforeEnter: () => {
+          if (!lStore.isset('user_token')) return '/login';
+        },
+      },
+      {
+        path: '/employee/schedules',
+        component: SchedulesView,
         beforeEnter: () => {
           if (!lStore.isset('user_token')) return '/login';
         },

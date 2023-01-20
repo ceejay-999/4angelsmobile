@@ -8,11 +8,11 @@
                     <ion-icon :icon="home" />
                 </ion-tab-button>
 
-                <!-- <ion-tab-button tab="schedules" href="/employee/schedules">
+                <ion-tab-button tab="schedules" href="/employee/schedules">
                     <ion-icon :icon="calendar" />
                 </ion-tab-button>
 
-                <ion-tab-button tab="timesheets" href="/employee/timesheets">
+                <!-- <ion-tab-button tab="timesheets" href="/employee/timesheets">
                     <ion-icon :icon="time" />
                 </ion-tab-button> -->
 

@@ -4,10 +4,10 @@
         <ion-header class="ion-head">
         </ion-header>
         <ion-content fullscreen="true" id="main-content" scroll-events="true">
-            <ion-text class="ion-padding-start ion-margin-top" color="primary">You will clockin at {{ timers }} on schedule  {{ readytoclockinsched.schedules_description }} from {{ new Date(readytoclockinsched.schedules_dates+' '+readytoclockinsched.schedules_timestart).toLocaleTimeString() }} - {{ new Date(readytoclockinsched.schedules_dates+' '+readytoclockinsched.schedules_timeend).toLocaleTimeString() }}</ion-text>
+            <ion-text class="ion-padding-start ion-margin-top" color="primary">You will clockin at {{ timers }} on facility  {{ readytoclockinsched.facility_name }} {{ new Date(readytoclockinsched.schedules_dates+' '+readytoclockinsched.schedules_timestart).toLocaleTimeString() }} - {{ new Date(readytoclockinsched.schedules_dates+' '+readytoclockinsched.schedules_timeend).toLocaleTimeString() }}</ion-text>
             <div class="d-flex">
-                <ion-text class="ion-padding-start ion-margin-top">Please provide a selfie</ion-text>
-                <img :src="readytoclockinsched.assignschedules_selfie" v-if="readytoclockinsched.assignschedules_selfie != 'https://www.4angelshc.com/mobile/filesystem/' && readytoclockinsched.assignschedules_selfie != null"/>
+                <ion-text class="ion-padding-start ion-margin-top">Please provide a clockin selfie</ion-text>
+                <img :src="readytoclockinsched.assignschedules_clockinselfie" v-if="readytoclockinsched.assignschedules_clockinselfie != 'https://www.4angelshc.com/mobile/filesystem/' && readytoclockinsched.assignschedules_clockinselfie != null"/>
                 <img src="../../images/profile.svg" v-else/>
                 <ion-buttons class="camera-icon">
                     <ion-icon :icon="camera" @click="setProfileImg"></ion-icon>
@@ -128,10 +128,9 @@ export default defineComponent({
                         url: 'https://4angelshc.com/mobile/assign/update?id='+this.readytoclockinsched.assignschedules_id,
                         data : form
                     }).then(()=>{
-                        console.log('aw');
                         this.loadImage = true;
-                        let userFromLStore = lStore.get('user_info')
-                        userFromLStore.assignschedules_selfie = image.dataUrl;
+                        let userFromLStore = this.readytoclockinsched;
+                        userFromLStore.assignschedules_clockinselfie = image.dataUrl;
                         openToast('Successfully Added Image', 'primary')
                         setTimeout(()=>{
                             this.$router.go(0);
@@ -145,22 +144,27 @@ export default defineComponent({
         },
         async ClockIn()
         {
-            const coordinates = await Geolocation.getCurrentPosition({enableHighAccuracy:true});
-            console.log(calcFlyDist([this.readytoclockinsched.facility_location_long,this.readytoclockinsched.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]));
-            console.log(await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude))
-            if(calcFlyDist([this.readytoclockinsched.facility_location_long,this.readytoclockinsched.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]) <= 0.2)
+            if(this.readytoclockinsched.assignschedules_clockinselfie == 'https://www.4angelshc.com/mobile/filesystem/' || this.readytoclockinsched.assignschedules_clockinselfie == null || this.readytoclockinsched.assignschedules_clockinselfie == '')
             {
-                let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString();
-                axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
-                    console.log('successfully save');
-                    openToast('Successfully Clockin', 'primary')
-                    this.$router.push('employee/dashboard');
-                })
-            }
-            else
-            {
-                openToast('You need to be near on the facility to clockin', 'danger');
+                openToast('Please provide a Clockin selfie', 'danger');
                 return;
+            }
+            else{
+                const coordinates = await Geolocation.getCurrentPosition({enableHighAccuracy:true});
+
+                if(calcFlyDist([this.readytoclockinsched.facility_location_long,this.readytoclockinsched.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]) <= 0.2)
+                {
+                    let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString();
+                    axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude}).then(()=>{
+                        openToast('Successfully Clockin', 'primary')
+                        this.$router.push('employee/dashboard');
+                    })
+                }
+                else
+                {
+                    openToast('You need to be near on the facility to clockin', 'danger');
+                    return;
+                }
             }
         },
         async mapFind(long,lat){
