@@ -379,29 +379,23 @@ export function bubbleSort(array,isDescending = false){
 
 
 export function calcFlyDist(coors1, coors2) {
-    if ((coors1[0] == coors2[0]) && (coors1[1] == coors2[1])) {
-        return 0;
-    } else {
-        var radlat1 = Math.PI * coors1[0]/180;
-        var radlat2 = Math.PI * coors2[0]/180;
-        var theta = coors1[1]-coors2[1];
-        var radtheta = Math.PI * theta/180;
-        var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-        if (dist > 1) {
-            dist = 1;
-        }
-        dist = Math.acos(dist);
-        dist = dist * 180/Math.PI;
-        dist = dist * 60 * 1.1515;
-        dist = dist * 1.609344;
-        return dist;
-    }
+    let R = 6371; // km
+    let dLat = toRad(Math.abs(coors2[1]-coors1[1]));
+    let dLon = toRad(Math.abs(coors2[0]-coors1[0]));
+    let lat1 = toRad(coors1[1]);
+    let lat2 = toRad(coors2[1]);
+
+    let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    let d = R * c;
+    return d;
 }
 
-// // COMP FUNCTIONS FOR calcFlyDist
-// function toRad(Value){
-//     return Value * Math.PI / 180;
-// }
+// COMP FUNCTIONS FOR calcFlyDist
+function toRad(Value){
+    return Value * Math.PI / 180;
+}
 // END OF COMP FUNCTIONS FOR calcFlyDist
 
 export class QueryBuilder{
@@ -435,11 +429,7 @@ export class QueryBuilder{
         for(let s in matchObj){
                 this.query+=`${s}=${matchObj[s]}`
             if(count <= max-1) this.query+='&';
-            
         }
-
-
-
 
         return this;
         }
