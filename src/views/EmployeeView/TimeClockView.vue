@@ -151,7 +151,7 @@ export default defineComponent({
                 {
                     let ClockinTime = new Date(new Date().toLocaleDateString()+' '+lStore.get('time')).toLocaleTimeString('zh-Hans-CN');
                     console.log(ClockinTime)
-                    axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude})
+                    await axios.post('assign/update?id='+this.readytoclockinsched.assignschedules_id,null,{ assignschedules_timein: ClockinTime, assignschedules_status: 2,assignschedules_timeinlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeinlong: coordinates.coords.longitude, assignschedules_timeinlat: coordinates.coords.latitude})
 
                     if(new Date(this.readytoclockinsched.schedules_dates+' '+ClockinTime).getTime() <= new Date(this.readytoclockinsched.schedules_dates+' '+this.readytoclockinsched.schedules_timestart).getTime()) // Clock in On Time
                     {

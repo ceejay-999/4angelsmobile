@@ -49,9 +49,12 @@
                 <p>MINUTES <span>{{ minutes }}</span></p>
                 <p>SECONDS <span>{{ seconds }}</span></p>
             </div>
-            <div v-if="Object.keys(current).length == 0"><!--check if naay existing schedule nga naka clocking which is status kay 2-->
+
+            <div class="schedule_wrap">
+                <div v-if="Object.keys(current).length == 0"><!--check if naay existing schedule nga naka clocking which is status kay 2-->
                 <ion-text color="primary">
-                    <h3>Choose your shift below:</h3>
+                    <ion-icon :icon="calendar" color="light"></ion-icon>
+                    <h4>Choose your shift below:</h4>
                 </ion-text>
                 <div v-if="upcoming.length != 0">
                     <div class="mt" v-for="upSchedule in upcoming" :key="upSchedule.assigndesignation_employeeid">
@@ -59,7 +62,7 @@
                             <ion-card-header>
                                 <div class="d-flex">
                                     <div>
-                                        <ion-card-title>{{ dateFormat('%h:%i%a', upSchedule.schedules_dates+' '+upSchedule.schedules_timestart) }} - {{ dateFormat('%h:%i%a', upSchedule.schedules_dates+' '+upSchedule.schedules_timeend) }}</ion-card-title>
+                                        <ion-card-title>{{ new Date(upSchedule.schedules_dates+' '+upSchedule.schedules_timestart).toLocaleTimeString() }} - {{ new Date(upSchedule.schedules_dates+' '+upSchedule.schedules_timeend).toLocaleTimeString() }}</ion-card-title>
                                         <ion-card-subtitle>{{ upSchedule.role_name }}</ion-card-subtitle>
                                     </div>
                                     <div>
@@ -77,27 +80,28 @@
                 <div style="text-align:center;" v-else>
                     <div class="mt">
                         <ion-text color="secondary">
-                            <h3>
-                                No schedule assigned to you today
-                            </h3>
+                            <img class="noData" src="@/images/noData.svg" alt="No Data">
+                            <h3>No schedule assigned to you today</h3>
                         </ion-text>
                     </div>
                 </div>
-            </div>
-            <div v-else>
-                <div class="mt">
-                    <ion-card-header>
-                        <ion-text>You clockin at {{ timein }}</ion-text>
-                        <ion-card-title>{{ dateFormat('%h:%i%a', current.schedules_dates+' '+current.schedules_timestart) }} - {{ dateFormat('%h:%i%a', current.schedules_dates+' '+current.schedules_timeend) }}</ion-card-title>
-                        <ion-card-subtitle>{{ current.role_name }}</ion-card-subtitle>
-                    </ion-card-header>
-                    <ion-card-content>
-                        <p>Facility: {{ current.facility_name }}</p>
-                        <p>Schedule Description: {{ current.schedules_description }}</p>
-                    </ion-card-content>
                 </div>
-                <ion-button @click="ClockOut(current.schedules_id,new Date().toLocaleTimeString('zh-Hans-CN'))">Clock Out</ion-button>
+                <div v-else>
+                    <div class="mt">
+                        <ion-card-header>
+                            <h2 class="clock_title">You clockin at <span> {{ timein }}</span></h2>
+                            <ion-card-title>{{ dateFormat('%h:%i%a', current.schedules_dates+' '+current.schedules_timestart) }} - {{ dateFormat('%h:%i%a', current.schedules_dates+' '+current.schedules_timeend) }}</ion-card-title>
+                            <ion-card-subtitle>{{ current.role_name }}</ion-card-subtitle>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <p>Facility: {{ current.facility_name }}</p>
+                            <p>Schedule Description: {{ current.schedules_description }}</p>
+                        </ion-card-content>
+                    </div>
+                    <ion-button @click="ClockOut(current.schedules_id,new Date().toLocaleTimeString('zh-Hans-CN'))" expand="block" color="light">Clock Out</ion-button>
+                </div>
             </div>
+
         </ion-content>
     </ion-page>
 </template>
@@ -309,6 +313,46 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.schedule_wrap{
+    background: linear-gradient(to bottom, #309ee1, #8fd0f7);
+    padding: 20px 12px 12px 12px;
+    border-radius: 15px;
+    margin-top: 15px;
+    position: relative;
+}
+.schedule_wrap h4 {
+    font-size: 18px;
+    margin: 0;
+    color: #fff;
+    position: absolute;
+    top: 25px;
+    left: 45px;
+    clear: both;
+    overflow: hidden;
+}
+
+.noData{
+    width: 170px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.schedule_wrap .clock_title {
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 12px;
+    font-size: 20px;
+    color: #fff1f1;
+    margin: 0 auto 20px;
+}
+
+.schedule_wrap .clock_title span {
+    display: block;
+    font-size: 30px;
+    color: #1a1a1a;
+    padding-top: 4px;
+}
+
 .mt{
     margin-top: 15px;
 }
@@ -321,6 +365,7 @@ export default defineComponent({
 .d-flex ion-icon{
     font-size: 25px;
 }
+
 .item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h{white-space: unset;}
 
 .noData{text-align: center; color: #959595; font-weight: bold;}
@@ -398,13 +443,12 @@ ion-card img {
 ion-card-title {
     font-size: 15px;
     margin: 6px auto 4px;
-    color: #1f94db;
+    color: #000;
 }
 
-/* ion-card-subtitle {
-    color: #999;
-    font-weight: bold;
-} */
+ion-card-subtitle {
+    color: #000;
+}
 
 ion-text {
     font-size: 30px;
@@ -450,6 +494,7 @@ ion-header::after {
 ion-text h3 {
     font-size: 18px;
     margin: 0;
+    color: #555;
 }
 
 ion-card {
