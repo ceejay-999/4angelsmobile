@@ -11,6 +11,7 @@ import EmployeeTabs from '@/views/EmployeeView/EmployeeTabs.vue';
 import TimeClock from '@/views/EmployeeView/TimeClockView.vue';
 import EmployeeProfile from '@/views/EmployeeView/Profile.vue';
 import SchedulesView from '@/views/EmployeeView/Schedules.vue';
+import TimeClockOut from '@/views/EmployeeView/TimeClockOutView.vue';
 
 
 
@@ -66,6 +67,7 @@ const routes = [
     ],
   },
   {path: '/timeclock', name: 'timeclock', component: TimeClock},
+  {path: '/timeclockout', name: 'timeclockout', component: TimeClockOut},
 ]
 
 const router = createRouter({

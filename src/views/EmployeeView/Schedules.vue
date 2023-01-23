@@ -1,18 +1,17 @@
 <template>
     <ion-page>
-        
-
         <div class="Schedule_modal" :class="{openModal:openModal}">
             <div class="Schedule_modal_box">
-                <h2>{{openedSchedule.title}}</h2>
+                <h2>{{openedSchedule.role_name}}</h2>
                 <div class="grid">
-                    <p>Schedule Date:</p><div><span>{{dateFormat('%lm %d, %y','2022-01-01 '+openedSchedule.shift_date)}}</span></div>
-                    <p>Schedule Start:</p><div><span>{{dateFormat('%h:%i%a','2022-01-01 '+openedSchedule.shift_start)}}</span></div>
-                    <p>Schedule End:</p><div><span>{{dateFormat('%h:%i%a','2022-01-01 '+openedSchedule.shift_end)}}</span></div>
-                    <p>Branch:</p><div><span>{{openedSchedule.name}}</span></div>
-                    <p>Branch Location:</p><div><span>{{openedSchedule.location}}</span></div>
-                    <p>Roles:</p><div><small class="designation_chips" v-for="s,i in openedSchedule.designations" :key="i">{{s.position}}</small></div>
-                    <p>Description:</p><div><span>{{openedSchedule.description}}</span></div>
+                    <p>Schedule ID:</p><div><span>{{openedSchedule.schedules_id}}</span></div>
+                    <p>Schedule Date:</p><div><span>{{dateFormat('%lm %d, %y','2022-01-01 '+openedSchedule.schedules_dates)}}</span></div>
+                    <p>Schedule Start:</p><div><span>{{dateFormat('%h:%i%a','2022-01-01 '+openedSchedule.schedules_timestart)}}</span></div>
+                    <p>Schedule End:</p><div><span>{{dateFormat('%h:%i%a','2022-01-01 '+openedSchedule.schedules_timeend)}}</span></div>
+                    <p>Branch:</p><div><span>{{openedSchedule.facility_name}}</span></div>
+                    <p>Branch Location:</p><div><span>{{openedSchedule.facility_location}}</span></div>
+                    <p>Description:</p><div><span>{{openedSchedule.schedules_description}}</span></div>
+                    <p v-if="scheduleShowStatus(openedSchedule) != false">Status:</p><div><span>{{scheduleShowStatus(openedSchedule)[1]}}</span></div>
                 </div>
 
                 <ion-button expand="block" @click="openModal=false">Close</ion-button>
@@ -47,13 +46,17 @@
             </div>
 
             <ion-list class="ion-margin-top" v-for="st in schedulesToday" :key="st.id">
-                <ion-item button lines="none" @click="openActionSheet(st.id)" :style="'border-left: 6px solid '+st.role_color">
+                <ion-item button lines="none" @click="openActionSheet(st.schedules_id)" :style="'border-left: 6px solid '+st.role_color">
                     <ion-label>
-                        <h2>{{st.role_name}}</h2>
-                        <p>Start Time: {{dateFormat('%h:%i%a',selectedDate+' '+st.shift_start)}}</p>
-                        <p>End Time: {{dateFormat('%h:%i%a',selectedDate+' '+st.shift_end)}}</p>
-                        <p>Date: {{dateFormat('%lm %d, %y',selectedDate)}}</p>
-                        <div class="designation_chips_cont"><div class="designation_chips" v-for="s,i in st.designations" :key="i">{{s.position}}</div></div>
+                        <h2>{{st.role_name}}
+                        </h2>
+                        <p>Start Time: {{dateFormat('%h:%i%a',selectedDate+' '+st.schedules_timestart)}}</p>
+                        <p>End Time: {{dateFormat('%h:%i%a',selectedDate+' '+st.schedules_timeend)}}</p>
+                        <p>Date: {{dateFormat('%lm %d, %y',st.schedules_dates)}}</p>
+                        <small class="schedStatus" v-if="scheduleShowStatus(st) != false">
+                            <ion-icon :icon="scheduleShowStatus(st)[0]"></ion-icon>
+                            {{scheduleShowStatus(st)[1]}}
+                        </small>
                     </ion-label>
                 </ion-item>
             </ion-list>
@@ -64,12 +67,13 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { IonContent, IonPage, IonHeader, IonToolbar, IonDatetime, actionSheetController, IonTitle, IonButtons, IonRefresher, IonRefresherContent, IonButton, IonAvatar, IonLabel, IonItem, IonList } from '@ionic/vue';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonDatetime, IonIcon,actionSheetController, IonTitle, IonButtons, IonRefresher, IonRefresherContent, IonButton, IonAvatar, IonLabel, IonItem, IonList } from '@ionic/vue';
+import { stopwatch, calendar, checkmarkDoneCircle, clipboard} from 'ionicons/icons';
 import { axios, lStore,dateFormat, openToast } from '@/functions';
 
 export default defineComponent({
     name: 'SchedulesView',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonDatetime, IonTitle, IonButtons, IonRefresher, IonRefresherContent, IonButton, IonAvatar, IonLabel, IonItem, IonList },
+    components: { IonIcon,IonContent, IonPage, IonHeader, IonToolbar, IonDatetime, IonTitle, IonButtons, IonRefresher, IonRefresherContent, IonButton, IonAvatar, IonLabel, IonItem, IonList },
     setup() {
         const logScrolling2 = (e) => {
             if (e.detail.scrollTop >= 50) {
@@ -97,7 +101,9 @@ export default defineComponent({
             isOpen: false,
             openModal: false,
             openedSchedule:{},
-            allowedRoles:[]
+            allowedRoles:{},
+
+            stopwatch, calendar, checkmarkDoneCircle, clipboard
         }
     },
     created() {
@@ -108,15 +114,18 @@ export default defineComponent({
         let month = months[new Date().getMonth()].toUpperCase();
         this.getMonthToday = month;
 
+
+        
         let date = new Date().toLocaleDateString();
         date = date.split('/')[2]+'-'+date.split('/')[0]+'-'+date.split('/')[1];
         this.selectedDate = date;
 
-        this.allowedRoles = [];
+        this.allowedRoles = {};
 
-        axios.post(`userDesignations?_batch=true&assigndesignation_employeeid=${lStore.get('user_id')}`).then(res=>{
-            if(res.data.result == null) return;
-            this.allowedRoles = res.data.result;
+        axios.post(`UserDesignations?_batch=true&assigndesignation_employeeid=${lStore.get('user_info').employee_id}`).then(res=>{
+            res.data.result.forEach(el=>{
+                this.allowedRoles[el.assigndesignation_facilityid] = el;
+            })
         });
 
         let selectedDate = new Date().toLocaleDateString('zh-Hans-CN',{
@@ -124,40 +133,22 @@ export default defineComponent({
                 month:'2-digit',
                 day: '2-digit'
             }).replaceAll('/','-');
-            let tomorrowDate = new Date();
-            tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-            tomorrowDate = tomorrowDate.toLocaleDateString('zh-Hans-CN',{
-                year:'numeric',
-                month:'2-digit',
-                day: '2-digit'
-            }).replaceAll('/','-');
+            
 
 
-        axios.post(`Schedule/joint?_GTE_schedules_dates=${selectedDate}&_LSE_schedules_dates=${tomorrowDate}&_batch=true`).then(res=>{
-            if(res.data.result == null) {
-                this.schedulesToday = [];
-                return;
-            }
-            this.schedulesToday = [];
-            res.data.result.forEach(el=>{
-                let filteredDesignations = [];
-                this.allowedRoles.forEach(()=>{
-                    if(el.designations == null) return;
-                    el.designations.forEach(el3=>{
-                        // if(el3.designation_id != el2.designation_id) return;
-                        // if(el2.branch_id != el.branch_id) return;
-                        filteredDesignations.push(el3);
-                    });
-                });
-                // if(filteredDesignations.length > 0) 
-                this.schedulesToday.push(el);
-            });
-        })
+        this.setDate(selectedDate);
     },
     methods: {
         dateFormat,
+        scheduleShowStatus(sched){
+            if(sched.assignschedules_id == null) return false;
+            if(sched.assignschedules_timeout != null) return [this.checkmarkDoneCircle,'Completed'];
+            else if(sched.assignschedules_timein != null) return [this.stopwatch,'In progress'];
+            else if(sched.assignschedules_status != 10) return [this.calendar,'Assigned'];
+            else if(sched.assignschedules_status == 10) return [this.clipboard,'Applied'];
+        },
         async openActionSheet(id) {
-            let selectedSched = this.schedulesToday.filter(el=>el.id == id);
+            let selectedSched = this.schedulesToday.filter(el=>el.schedules_id == id);
             selectedSched = selectedSched[0];
             let actionSheetButtons = [
                 {
@@ -175,21 +166,22 @@ export default defineComponent({
                 }
             ];
 
-            if(!this.hasAlreadyApplied(selectedSched)){
+            if(!this.hasApplied(selectedSched)){
                 actionSheetButtons.push({
                     text: 'Apply Shift',
                     data: {
                         action: 'apply',
                     }
                 });
-            }else{
-                actionSheetButtons.push({
-                    text: 'Request Change',
-                    data: {
-                        action: 'request change',
-                    }
-                });
             }
+            // else{
+            //     actionSheetButtons.push({
+            //         text: 'Request Change',
+            //         data: {
+            //             action: 'request change',
+            //         }
+            //     });
+            // }
 
             const openSheet = await actionSheetController.create({
                 header: 'Schedule Action',
@@ -201,19 +193,22 @@ export default defineComponent({
                 if(res.data == null) return;
                 if(res.data.action == 'cancel') return;
                 if(res.data.action == 'apply') {
-                    let schedEnd = new Date(selectedSched.shift_date+' '+selectedSched.shift_end).getTime();
-                    let curDateTime = new Date().getTime();
-                    if(curDateTime >= schedEnd) {
+                    let schedStart = new Date(selectedSched.schedules_dates+' '+selectedSched.schedules_timestart);
+                    let curDateTime = new Date();
+                    console.log(schedStart,curDateTime,curDateTime.getTime() >= schedStart.getTime());
+                    if(curDateTime.getTime() >= schedStart.getTime()) {
                         openToast('You cannot apply for a schedule that\'s already finished!','warning');
                         return;
                     }
-                    axios.post('assigned/create',null,{
-                        user_id: lStore.get('user_id'),
-                        schedule_id: id,
-                        status: 3
+
+                    axios.post('Assign/create',null,{
+                        assignschedules_assigndesignationid: this.allowedRoles[selectedSched.schedules_facilityid].assigndesignation_id,
+                        assignschedules_scheduleid: selectedSched.schedules_id,
+                        assignschedules_status: 10
                     }).then(()=>{
                         window.location.reload();
                     })
+                    
                 }else if(res.data.action == 'view'){
                     this.openedSchedule = selectedSched;
                     this.openModal = true;
@@ -224,10 +219,8 @@ export default defineComponent({
         setOpen() {
             this.isOpen = true;
         },
-        hasAlreadyApplied(sched){
-            let emp = [];
-            if(sched.assignedEmps != null) emp = sched.assignedEmps.filter(el=>el.user_id == lStore.get('user_id'))
-            return emp.length > 0
+        hasApplied(sched){
+            return sched.assignschedules_id != null
         },
         handleRefresh(e){
             this.setDate(this.selectedDate);
@@ -242,39 +235,31 @@ export default defineComponent({
                 this.selectedDate = date;
             }
             
-            let selectedDate = new Date(e.target.value).toLocaleDateString('zh-Hans-CN',{
-                year:'numeric',
-                month:'2-digit',
-                day: '2-digit'
-            }).replaceAll('/','-');
-            let tomorrowDate = new Date(e.target.value);
-            tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-            tomorrowDate = tomorrowDate.toLocaleDateString('zh-Hans-CN',{
+            let selectedDate = new Date(date).toLocaleDateString('zh-Hans-CN',{
                 year:'numeric',
                 month:'2-digit',
                 day: '2-digit'
             }).replaceAll('/','-');
             
             
-            axios.post(`Schedule/joint?_GTE_schedules_dates=${selectedDate}&_LSE_schedules_dates=${tomorrowDate}&_batch=true`).then(res=>{
-                event.target.complete();
+            axios.post(`Schedule/joint?schedules_dates=${selectedDate}&_batch=true`).then(res=>{
                 if(res.data.result == null) {
                     this.schedulesToday = [];
                     return;
                 }
                 this.schedulesToday = [];
                 res.data.result.forEach(el=>{
-                    let filteredDesignations = [];
-                    this.allowedRoles.forEach(()=>{
-                        if(el.designations == null) return;
-                        el.designations.forEach(el3=>{
-                            // if(el3.designation_id != el2.designation_id) return;
-                            // if(el2.branch_id != el.branch_id) return;
-                            filteredDesignations.push(el3);
-                        });
-                    });
-                    // if(filteredDesignations.length > 0) 
-                    this.schedulesToday.push(el);
+                    if(el.assignedEmps.length > 0) el = {...el,...el.assignedEmps[0]};
+                    delete el.assignedEmps;
+                    if(this.allowedRoles[el.schedules_facilityid] == null) return false;
+                    if(this.allowedRoles[el.schedules_facilityid].assigndesignation_roleid != el.schedules_roleid) return;
+                    this.schedulesToday.push(el)
+                });
+
+                this.schedulesToday = this.schedulesToday.sort((a,b)=>{
+                    let timeA = new Date(a.schedules_dates+' '+a.schedules_timestart).getTime();
+                    let timeB = new Date(b.schedules_dates+' '+b.schedules_timestart).getTime();
+                    return timeA - timeB;
                 });
             })
         }
@@ -563,4 +548,15 @@ ion-select {
     display: inline-block;
 }
 .designation_chips:first-child{margin-left: 0;}
+.schedStatus{
+    color: #fff;
+    background: var(--ion-color-primary);
+    font-size: 14px;
+    padding: 2px 5px;
+    border-radius: 20px;
+    display: block;
+    width: max-content;
+    margin: 10px 0;
+}
+.schedStatus i {vertical-align: text-top;}
 </style>

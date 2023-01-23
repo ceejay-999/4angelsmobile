@@ -96,17 +96,16 @@
                         <p>Schedule Description: {{ current.schedules_description }}</p>
                     </ion-card-content>
                 </div>
-                <ion-button @click="ClockOut">Clock Out</ion-button>
+                <ion-button @click="ClockOut(current.schedules_id,new Date().toLocaleTimeString('zh-Hans-CN'))">Clock Out</ion-button>
             </div>
         </ion-content>
     </ion-page>
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, menuController, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText } from '@ionic/vue';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, menuController, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText,actionSheetController } from '@ionic/vue';
 import { apps, map, chatbox, settings, ticket, helpCircle, logOut, alertCircle, warning, menu, reader, checkmarkCircle, location, time, calendar, calendarClear, navigate, person, timerOutline } from 'ionicons/icons';
-import { lStore, axios, formatDateString,dateFormat,openToast,calcFlyDist } from '@/functions'; 
-import { Geolocation } from '@capacitor/geolocation';
+import { lStore, axios, formatDateString,dateFormat } from '@/functions'; 
 
 
 export default defineComponent({
@@ -231,6 +230,7 @@ export default defineComponent({
             menuController.close('app-menu');
         },
         async fetchScheds(){
+            this.current = {};
             let currentDate = new Date();
             let currentDateString = currentDate.toLocaleDateString().split('/');
             currentDateString = formatDateString(currentDateString[2] + '-' + currentDateString[0] + '-' + currentDateString[1]).replaceAll(' ','');
@@ -245,7 +245,8 @@ export default defineComponent({
             if(resp.data != null && resp.data.success) {
                 //Getting Upcoming schedules
                 resp.data.result.forEach(element => {
-                    if(element.assignschedules_status > 5 && element.assignschedules_status < 10 && element.assignschedules_timeout == null)
+                    console.log(element.assignschedules_status > 5 && element.assignschedules_status < 10 && element.assignschedules_status != 8 && element.assignschedules_timeout == null || element.assignschedules_status == 2)
+                    if(element.assignschedules_status > 5 && element.assignschedules_status < 10 && element.assignschedules_status != 8 && element.assignschedules_timeout == null || element.assignschedules_status == 2)
                     {
                         this.current = element;
                     }
@@ -262,22 +263,45 @@ export default defineComponent({
             }
 
         },
-        async ClockOut(){
-            const coordinates = await Geolocation.getCurrentPosition({enableHighAccuracy:true});
-            if(calcFlyDist([this.current.facility_location_long,this.current.facility_location_lat],[coordinates.coords.longitude,coordinates.coords.latitude]) <= 0.2)//longitude lattitude
+        async ClockOut(data, data2){
+            if(new Date(this.current.schedules_dates+' '+ data2).getTime() < new Date(this.current.schedules_dates+' '+this.current.schedules_timeend).getTime())
             {
-                let ClockinTime = new Date().toLocaleTimeString()
-                axios.post('assign/update?id='+this.current.assignschedules_id,null,{ assignschedules_timeout: ClockinTime, assignschedules_status: 1,assignschedules_timeoutlocationname: await this.mapFind(coordinates.coords.longitude,coordinates.coords.latitude), assignschedules_timeoutlong: coordinates.coords.longitude, assignschedules_timeoutlat: coordinates.coords.latitude}).then(()=>{
-                    openToast('Successfully Clockout', 'primary')
+                let action = await actionSheetController.create({
+                    header: 'You are Undertime! Are you sure you want to clockout?',
+                    buttons: [
+                        {
+                            text: 'Confirm',
+                            data: {
+                                action: 'confirm',
+                            },
+                        },
+                        {
+                            text: 'Cancel',
+                            role: 'cancel',
+                            data: {
+                                action: 'cancel',
+                            },
+                        }
+                    ]
                 })
-                setTimeout(()=>{
-                    this.$router.go(0);
-                },3000);
+    
+                await action.present();
+                action.onDidDismiss().then(res=>{
+                    if(res.data == null) return;
+                    if(res.data.action == 'cancel') return;
+                    if(res.data.action == 'confirm') {
+                        lStore.set('scheduleclockoutid',data);
+                        lStore.set('timeOut',data2);
+                        this.$router.push('/timeclockout');
+                    }
+
+                });
             }
             else
             {
-                openToast('You need to be near on the facility to clockout', 'danger');
-                return;
+                lStore.set('scheduleclockoutid',data);
+                lStore.set('timeOut',data2);
+                this.$router.push('/timeclockout');
             }
         },
     }

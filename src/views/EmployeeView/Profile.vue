@@ -24,18 +24,18 @@
             </ion-refresher>
             
             <ion-list class="ion-margin-top">
-                <ion-item lines="full">
+                <ion-item lines="full" @dblclick="setOpen2(true)">
                     <ion-icon :icon="mail" slot="start" color="medium"></ion-icon>
                     <ion-label>{{ user.employee_emailaddress }}</ion-label>
                 </ion-item>
-                <ion-item lines="full">
+                <ion-item lines="full" @dblclick="setOpen2(true)">
                     <ion-icon :icon="call" slot="start" color="medium"></ion-icon>
                     <ion-label>{{ user.employee_phonenumber }}</ion-label>
                 </ion-item>
-                <!-- <ion-item lines="full">
-                    <ion-icon :icon="location" slot="start" color="medium"></ion-icon>
-                    <ion-label>{{ user.employee_address }}</ion-label>
-                </ion-item> -->
+                <ion-item lines="full" @dblclick="setOpen2(true)">
+                    <ion-icon :icon="briefcase" slot="start" color="medium"></ion-icon>
+                    <ion-label>{{ user.employee_hiredate }}</ion-label>
+                </ion-item>
             </ion-list>
             <ion-grid>
                 <ion-row>
@@ -113,10 +113,6 @@
                             <ion-label position="stacked">Email</ion-label>
                             <ion-input v-model="user.employee_emailaddress"></ion-input>
                         </ion-item>
-                        <!-- <ion-item>
-                            <ion-label position="stacked">Address</ion-label>
-                            <ion-input v-model="user.address"></ion-input>
-                        </ion-item> -->
                     </ion-list>
                     <ion-grid>
                         <ion-row>
@@ -139,7 +135,7 @@
 import { defineComponent } from 'vue';
 import axiosA from 'axios';
 import { IonContent, IonPage, IonAvatar, IonItem, IonIcon, IonLabel, IonButtons, actionSheetController, loadingController, IonToolbar, IonList, IonCol, IonRow, IonGrid, IonHeader, IonModal, IonInput,IonRefresher, IonRefresherContent, IonButton, IonTitle, IonSpinner } from '@ionic/vue';
-import { mail, call, location, create, camera, cloudUpload } from 'ionicons/icons';
+import { mail, call, location, create, camera, cloudUpload, briefcase } from 'ionicons/icons';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { lStore, axios, ImageDataConverter, openToast} from '@/functions';
 import router from '@/router';
@@ -150,7 +146,7 @@ export default defineComponent({
     name: 'EmployeeProfile',
     components: { IonContent, IonPage, IonAvatar, IonItem, IonIcon, IonLabel, IonButtons, IonToolbar, IonList, IonCol, IonRow, IonGrid, IonHeader, IonModal, IonInput,IonRefresher, IonRefresherContent, IonButton, IonTitle, IonSpinner  },
     setup() {
-        return { mail, call, location, create, camera, cloudUpload };
+        return { mail, call, location, create, camera, cloudUpload, briefcase };
     },
     data() {
         return {
@@ -168,7 +164,6 @@ export default defineComponent({
         }
     },
     created() {
-        this.clear();
         this.user = lStore.get('user_info');
         console.log(this.user.employee_profilepicture);
         this.path = this.cifile+this.user.employee_id;
@@ -176,13 +171,12 @@ export default defineComponent({
         axios.post('files?path='+this.relativePath).then(res=>{
             this.files = res.data;
         });
-        
     },
     methods: {
         handleRefresh(event){
+            this.user = lStore.get('user_info');
             setTimeout(() => {
                 event.target.complete();
-                window.location.reload();
             }, 2000);
         },
         setOpen(isOpen) {
@@ -212,25 +206,6 @@ export default defineComponent({
             if(video.includes(ext)) return 'video';
             if(doc.includes(ext)) return 'document';
             return '';
-        },
-        clear(){
-            this.message = null;
-            this.clockIn = '';
-            this.clockOut = '';
-            this.disabled = true;
-            this.disabled2 = false;
-            this.facility= '';
-            this.user= {};
-            this.clockTimer= 1;
-            this.startTimer= false;
-            this.timeData= '';
-            this.hours= '';
-            this.minutes= '';
-            this.seconds= '';
-            this.todays= false;
-            this.upcomings= true;
-            this.upcoming= [{}];
-            this.nextSched={};
         },
         async openLoader() {
             const loading = await loadingController.create({
@@ -268,7 +243,6 @@ export default defineComponent({
         },
         logout() {
             loadingController.dismiss();
-            window.localStorage.clear();
             localStorage.clear();
             router.push('/login');
             window.location.reload();
