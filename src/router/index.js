@@ -13,9 +13,6 @@ import EmployeeProfile from '@/views/EmployeeView/Profile.vue';
 import SchedulesView from '@/views/EmployeeView/Schedules.vue';
 import TimeClockOut from '@/views/EmployeeView/TimeClockOutView.vue';
 
-
-
-
 const routes = [
   {
     path: '/',

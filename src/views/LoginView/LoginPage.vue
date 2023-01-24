@@ -1,14 +1,12 @@
 <template>
     <ion-page>
-        <BackButton :showButton = false bgColor="transparent" :toggleHidden = true ></BackButton>
+        <!-- <BackButton :showButton = false bgColor="transparent" :toggleHidden = true ></BackButton> -->
         <ion-content fullscreen="true">
             <div class="form-container">
+                <span class="style-circle"></span>
                 <div class="form-header">
-                    <img src="../../images/logo.png" alt="Logo"/>
-                    <ion-text color="primary">
-                        <h2>Welcome</h2>
-                    </ion-text>
-                    <p>Sign in to continue!</p>
+                    <img src="../../images/main_logo.png" alt="Logo"/>
+                    <p>Sign In</p>
                 </div>
                 <div class="form-input">
                     <ion-item>
@@ -23,19 +21,13 @@
                             <ion-icon :class="{ showIcon2 : !showIcon2 }" :icon="eyeOff"></ion-icon>
                         </a>
                     </ion-item>
-                    <div class="form-input-footer">
-                        <ion-item>
-                            <ion-checkbox slot="start"></ion-checkbox>
-                            <ion-label>Remember Me</ion-label>
-                        </ion-item>
-                    </div>
+                    <ion-button class="ion-margin-top" expand="block" size="large" :disabled="formLoading" v-on:click="login">
+                        <span v-if="!formLoading" >LOGIN</span>
+                        <span v-if="formLoading">
+                            <ion-spinner name="dots"></ion-spinner>
+                        </span>
+                    </ion-button>
                 </div>
-                <ion-button expand="block" size="large" :disabled="formLoading" v-on:click="login">
-                    <span v-if="!formLoading" >Login</span>
-                    <span v-if="formLoading">
-                        <ion-spinner name="dots"></ion-spinner>
-                    </span>
-                </ion-button>
                 <ion-text class="privacy">By logging in, I agree to <strong>4Angels Healthcare Staffing</strong>'s <a @click="setOpen(true)" href="javascript:;">Terms of Service and Privacy Policy</a></ion-text>
             </div>
 
@@ -142,14 +134,14 @@
 
 <script>
 import { defineComponent } from 'vue';
-import { IonContent, IonPage, IonText, IonItem, IonLabel, IonInput, IonButton, IonCheckbox, IonSpinner, IonModal, IonList, IonIcon, IonTitle, IonButtons, IonToolbar, IonHeader } from '@ionic/vue';
+import { IonContent, IonPage, IonText, IonItem, IonLabel, IonInput, IonButton, IonSpinner, IonModal, IonList, IonIcon, IonTitle, IonButtons, IonToolbar, IonHeader } from '@ionic/vue';
 import { axios, validateForm, openToast, lStore } from '@/functions';
 import { eye, eyeOff, close } from 'ionicons/icons';
-import BackButton from '@/views/BackButton';
+// import BackButton from '@/views/BackButton';
 
 export default defineComponent({
     name: 'LoginPage',
-    components: { IonContent, IonPage, IonText, IonItem, IonLabel, IonInput, IonButton, IonCheckbox, IonSpinner, BackButton, IonModal, IonList, IonIcon, IonTitle, IonButtons, IonToolbar, IonHeader },
+    components: { IonContent, IonPage, IonText, IonItem, IonLabel, IonInput, IonButton, IonSpinner, IonModal, IonList, IonIcon, IonTitle, IonButtons, IonToolbar, IonHeader },
     data() {
         return{
             loginInput: "",
@@ -217,6 +209,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+ion-content {
+    --padding-top: 67px;
+}
+
 ion-header {
     box-shadow: none;
 }
@@ -225,6 +222,30 @@ ion-label h1 {
     margin-bottom: 12px !important;
     color: #1f94db;
     font-weight: bold;
+}
+
+.style-circle::before {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background: #138ed9;
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    top: 0;
+    left: -90px;
+}
+
+.style-circle::after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    background: #138ed9;
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    right: -105px;
+    top: 145px;
 }
 
 ion-label p {
@@ -269,6 +290,18 @@ ion-title {
     height: auto;
 }
 
+
+.form-container::before {
+    content: '';
+    width: 100%;
+    height: 370px;
+    background: #1f94db;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
 .form-container p {
     text-align: center;
 }
@@ -283,8 +316,8 @@ ion-title {
 
 .form-header img {
     width: 100%;
-    max-width: 200px;
-    margin-bottom: 15px;
+    max-width: 160px;
+    margin-bottom: 25px;
 }
 
 .form-header h2 {
@@ -296,6 +329,16 @@ ion-title {
 
 .form-header p {
     margin: 0;
+    color: #fff;
+    font-size: 20px;
+}
+
+.form-input {
+    box-shadow: 0px 0px 8px #d9d9d9;
+    border-radius: 15px;
+    padding: 45px 12px 35px 12px;
+    margin: 0 16px;
+    background: #fff;
 }
 
 .form-input-footer {
@@ -324,6 +367,10 @@ ion-title {
 
 .form-input-footer ion-checkbox {
     margin: 0 10px 0 0 !important;
+}
+
+.form-input ion-button {
+    margin-top: 25px;
 }
 
 .eyeCon {

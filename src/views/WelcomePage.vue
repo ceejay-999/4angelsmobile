@@ -1,22 +1,20 @@
 <template>
     <ion-page>
       <ion-content>
-        <swiper :modules="modules" :autoplay="true" :keyboard="true" :pagination="true" :scrollbar="true" :zoom="true">
-          <swiper-slide>
-            <div>
-              <ion-text color="primary">
-                <h2>Welcome</h2>
-              </ion-text>
-              <p class="ion-text-wrap">Please Sign in to continue using our app</p>
-            </div>
-            <div class="graphics">
-              <img src="../images/welcome_graphics.svg" alt="Welcome"/>
-            </div>
-            <div class="flex">
-              <ion-button expand="block" size="large" @click="$router.push('/login')">Sign In</ion-button>
-            </div>
-          </swiper-slide>
+        <div class="welcome">
+          <ion-text color="primary">
+            <h2>Welcome</h2>
+          </ion-text>
+          <p class="ion-text-wrap">Please Sign in to continue using our app</p>
+        </div>
+        <swiper :modules="modules" :autoplay="true" :keyboard="true" :pagination="true" :scrollbar="true" :zoom="true" :loop="true">
+          <swiper-slide><img src="../images/welcome_graphics3.svg" alt="Welcome"/></swiper-slide>
+          <swiper-slide><img src="../images/welcome_graphics4.svg" alt="Welcome"/></swiper-slide>
+          <swiper-slide><img src="../images/welcome_graphics2.svg" alt="Welcome"/></swiper-slide>
         </swiper>
+        <div class="flex">
+          <ion-button expand="block" size="large" @click="$router.push('/login')">Sign In</ion-button>
+        </div>
       </ion-content>
     </ion-page>
   </template>
@@ -39,7 +37,7 @@
     components: { Swiper, SwiperSlide, IonContent, IonPage, IonButton, IonText },
     setup() {
       return {
-        modules: [Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides],
+        modules: [ Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides],
       };
     },
   });
@@ -53,23 +51,12 @@
       --padding-end: 0;
   }
   
-  .swiper {
-      width: 100%;
-      height: 100vh;
-      padding: 40px 20px;
-  }
-  
-  .swiper .swiper-slide {
-      flex-flow: column;
-      justify-content: center;
-      align-items: stretch;
-  }
-  
-  ion-text h2 {
+  .welcome ion-text h2 {
       font-size: 2em;
       font-weight: bold;
       color: #1f94db;
       margin: 0 0 10px;
+      text-align: center;
   }
   
   .flex {
@@ -81,10 +68,18 @@
   ion-button {
     width: 47%;
   }
-  
-  div p {
-      font-size: 16px;
-      padding: 0 10vw;
+
+  .welcome {
+    margin: 70px 0 0;
+  }
+
+  .welcome p {
+    width: 310px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 10vw;
   }
   
   .graphics {
@@ -96,4 +91,13 @@
       width: 100% !important;
       height: 50vh !important;
   }
+
+  .swiper {
+    margin: 70px 0 90px;
+  }
+
+  .swiper .swiper-slide img {
+    width: 300px;
+  }
+
   </style>

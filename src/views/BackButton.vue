@@ -1,24 +1,18 @@
 <template>
     <ion-header :class="{ 'hidden': toggleHidden }" animated="false">
-        <ion-toolbar :style="{ backgroundColor: bgColor }">
+        <ion-toolbar color="primary">
             <ion-buttons slot="start" v-if="$route.path == '/login'">
                 <ion-back-button text="" @click="$router.push('/welcome')"></ion-back-button>
             </ion-buttons>
             <ion-buttons slot="start" :class="{ 'ion-hide': showButton }" v-else>
                 <ion-back-button text="" @click="goBack()"></ion-back-button>
             </ion-buttons>
-            <ion-title slot="end" color="primary" v-if="$route.path == '/customer/chat'">Johnny Sins <span>Technician</span></ion-title>
-            <ion-title slot="start" color="primary" v-else>{{ pageTitle }}</ion-title>
-            <ion-avatar slot="end" v-if="$route.path == '/customer/chat'">
-                <img src="@/images/profile-2.svg"/>
-            </ion-avatar>
-            <ion-avatar slot="end" v-else></ion-avatar>
         </ion-toolbar>
     </ion-header>
 </template>
 
 <script>
-import { IonButtons, IonHeader, IonToolbar, IonBackButton, IonAvatar, IonTitle } from '@ionic/vue';
+import { IonButtons, IonHeader, IonToolbar, IonBackButton } from '@ionic/vue';
 
 export default {
     props: {
@@ -40,7 +34,7 @@ export default {
         pageTitle: String
     },
     name: 'BackButton',
-    components: { IonButtons, IonHeader, IonToolbar, IonBackButton, IonAvatar, IonTitle },
+    components: { IonButtons, IonHeader, IonToolbar, IonBackButton },
     methods: {
         goBack() {
             this.$router.back();

@@ -14,7 +14,7 @@
                 <ion-buttons class="camera-icon">
                     <ion-icon :icon="camera" @click="setProfileImg"></ion-icon>
                 </ion-buttons>
-                <ion-spinner v-if="loadImage" class="load-img" name="dots"></ion-spinner>
+                <ion-spinner v-show="loadImageLoader" class="load-img" name="dots"></ion-spinner>
             </ion-avatar>
             <h2 class="title_name">{{ user.employee_firstname }} {{ user.employee_lastname }}<span></span></h2>
         </ion-toolbar>
@@ -24,25 +24,30 @@
             </ion-refresher>
             
             <ion-list class="ion-margin-top">
-                <ion-item lines="full" @dblclick="setOpen2(true)">
+                <ion-item lines="full">
                     <ion-icon :icon="mail" slot="start" color="medium"></ion-icon>
-                    <ion-label>{{ user.employee_emailaddress }}</ion-label>
+                    <ion-label position="stacked">Email</ion-label>
+                    <ion-input v-model="user.employee_emailaddress" :disabled="true"></ion-input>
                 </ion-item>
-                <ion-item lines="full" @dblclick="setOpen2(true)">
+                <ion-item lines="full">
                     <ion-icon :icon="call" slot="start" color="medium"></ion-icon>
-                    <ion-label>{{ user.employee_phonenumber }}</ion-label>
+                    <ion-label position="stacked">Phone</ion-label>
+                    <ion-input v-model="user.employee_phonenumber" :disabled="true"></ion-input>
                 </ion-item>
-                <ion-item lines="full" @dblclick="setOpen2(true)">
+                <ion-item lines="full">
+                    <ion-icon :icon="calendar" slot="start" color="medium"></ion-icon>
+                    <ion-label position="stacked">Birthday</ion-label>
+                    <ion-input v-model="user.employee_birthday" :disabled="true"></ion-input>
+                </ion-item>
+                <ion-item lines="full">
                     <ion-icon :icon="briefcase" slot="start" color="medium"></ion-icon>
-                    <ion-label>{{ user.employee_hiredate }}</ion-label>
+                    <ion-label position="stacked">Hired Date</ion-label>
+                    <ion-input v-model="user.employee_hiredate" :disabled="true"></ion-input>
                 </ion-item>
             </ion-list>
             <ion-grid>
                 <ion-row>
-                    <ion-col size="6">
-                        <ion-button expand="block" color="primary" @click="$router.push('/employee/dashboard')">Home</ion-button>
-                    </ion-col>
-                    <ion-col size="6">
+                    <ion-col size="6" offset="3">
                         <ion-button expand="block" color="dark" @click="presentActionSheet">Logout</ion-button>
                     </ion-col>
                 </ion-row>
@@ -113,6 +118,10 @@
                             <ion-label position="stacked">Email</ion-label>
                             <ion-input v-model="user.employee_emailaddress"></ion-input>
                         </ion-item>
+                        <ion-item>
+                            <ion-label position="stacked">Phone</ion-label>
+                            <ion-input v-model="user.employee_phonenumber"></ion-input>
+                        </ion-item>
                     </ion-list>
                     <ion-grid>
                         <ion-row>
@@ -135,7 +144,7 @@
 import { defineComponent } from 'vue';
 import axiosA from 'axios';
 import { IonContent, IonPage, IonAvatar, IonItem, IonIcon, IonLabel, IonButtons, actionSheetController, loadingController, IonToolbar, IonList, IonCol, IonRow, IonGrid, IonHeader, IonModal, IonInput,IonRefresher, IonRefresherContent, IonButton, IonTitle, IonSpinner } from '@ionic/vue';
-import { mail, call, location, create, camera, cloudUpload, briefcase } from 'ionicons/icons';
+import { mail, call, location, create, camera, cloudUpload, briefcase, calendar } from 'ionicons/icons';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { lStore, axios, ImageDataConverter, openToast} from '@/functions';
 import router from '@/router';
@@ -146,7 +155,7 @@ export default defineComponent({
     name: 'EmployeeProfile',
     components: { IonContent, IonPage, IonAvatar, IonItem, IonIcon, IonLabel, IonButtons, IonToolbar, IonList, IonCol, IonRow, IonGrid, IonHeader, IonModal, IonInput,IonRefresher, IonRefresherContent, IonButton, IonTitle, IonSpinner  },
     setup() {
-        return { mail, call, location, create, camera, cloudUpload, briefcase };
+        return { mail, call, location, create, camera, cloudUpload, briefcase, calendar };
     },
     data() {
         return {
@@ -160,7 +169,8 @@ export default defineComponent({
             bulkSelect:false,
             uploading:{},
             isOpen2: false,
-            loadImage: false
+            loadImage: false,
+            loadImageLoader: false
         }
     },
     created() {
@@ -333,22 +343,19 @@ export default defineComponent({
                     return;
                 }
                 if(res.data.action == 'confirm') {
+                    this.loadImageLoader = true;
                     axiosA({
                         method:'post',
                         url: 'https://4angelshc.com/mobile/employee/update?id='+lStore.get('user_id'),
                         data : form
                     }).then(()=>{
-                        this.loadImage = true;
                         let userFromLStore = lStore.get('user_info')
                         userFromLStore.employee_profilepicture = image.dataUrl;
                         lStore.set('user_info', userFromLStore);
                         window.location.reload();
                     })
                 }
-
             });
-
-            
         }
     }
 });
@@ -356,7 +363,23 @@ export default defineComponent({
 
 <style scoped>
 
-.load-img{position: absolute; left: 0; right: 0; text-align: center; margin: 0 auto; top: 63px; color: #fff;}
+ion-item ion-icon {
+    font-size: 22px;
+}
+
+.load-img{position: absolute; left: 0; right: 0; text-align: center; margin: 0 auto; top: 50px; color: #000;}
+
+.load-img::before{
+    content: '';
+    background: #fff;
+    width: 104px;
+    height: 104px;
+    position: absolute;
+    top: -42px;
+    left: -38px;
+    opacity: 0.5;
+    border-radius: 70px;
+}
 
 .close_icon {
     position: absolute;
@@ -381,7 +404,7 @@ ion-title {
 ion-header {
     box-shadow: none; 
     text-align: center; 
-    font-size: 22px;
+    font-size: 20px;
 }
 
 ion-avatar {
@@ -473,6 +496,7 @@ ion-toolbar {
 
 .title-toolbar {
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(58,174,245,1) 30%, rgba(20,139,210,1) 65%); 
+    border-radius: 0 0 25px 25px;
 }
 
 .file_vwr_ctrl{padding: 10px;}

@@ -4,7 +4,7 @@
         <ion-menu content-id="main-content">
             <ion-header>
                 <ion-toolbar color="primary">
-                    <ion-title>Menu</ion-title>
+                    <img class="menu_logo" src="../../images/menu_logo.png" alt="Logo"/>
                 </ion-toolbar>
             </ion-header>
             <ion-content>
@@ -107,14 +107,14 @@
 </template>
 <script>
 import { defineComponent } from 'vue';
-import { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, menuController, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText,actionSheetController } from '@ionic/vue';
+import { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, menuController, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonLabel, IonItem, IonList, IonAvatar, IonText,actionSheetController } from '@ionic/vue';
 import { apps, map, chatbox, settings, ticket, helpCircle, logOut, alertCircle, warning, menu, reader, checkmarkCircle, location, time, calendar, calendarClear, navigate, person, timerOutline } from 'ionicons/icons';
 import { lStore, axios, formatDateString,dateFormat } from '@/functions'; 
 
 
 export default defineComponent({
     name: 'DashboardView',
-    components: { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonTitle, IonLabel, IonItem, IonList, IonAvatar, IonText },
+    components: { IonContent, IonPage, IonHeader, IonToolbar, IonCard, IonCardHeader, IonCardTitle,IonCardSubtitle,IonCardContent, IonButtons,IonButton, IonMenu, IonMenuButton, IonRefresher, IonRefresherContent, IonIcon, IonRouterOutlet, IonLabel, IonItem, IonList, IonAvatar, IonText },
     setup() {
         const logScrolling = (e) => {
             if (e.detail.scrollTop >= 20) {
@@ -154,17 +154,12 @@ export default defineComponent({
         }
     },
     created() {
-        this.clear();
         this.user = lStore.get('user_info');
     },
     updated(){
         this.timein = lStore.get('time');
     },
     mounted() {
-        const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
-        let day = days[new Date().getDay()].toUpperCase();
-        this.getDayToday = day;
-
         const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
         
         let month = months[new Date().getMonth()].toUpperCase();
@@ -197,24 +192,6 @@ export default defineComponent({
             setTimeout(() => {
                 event.target.complete();
             }, 2000);
-        },
-        clear(){
-            this.message = null;
-            this.clockIn = '';
-            this.clockOut = '';
-            this.disabled = true;
-            this.disabled2 = false;
-            this.facility= '';
-            this.user= {};
-            this.clockTimer= 1;
-            this.startTimer= false;
-            this.timeData= '';
-            this.hours= '';
-            this.minutes= '';
-            this.seconds= '';
-            this.todays= false;
-            this.upcomings= true;
-            this.upcoming= [];
         },
         openMenu() {
             menuController.open('app-menu');
@@ -313,6 +290,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+.menu_logo {
+    width: 160px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0;
+}
 .schedule_wrap{
     background: linear-gradient(to bottom, #309ee1, #8fd0f7);
     padding: 20px 12px 12px 12px;
@@ -415,11 +399,8 @@ ion-avatar img {
 }
 
 ion-header {
-    z-index: 999;
-}
-
-ion-header {
     box-shadow: none;
+    z-index: 999;
 }
 
 ion-header::after {
@@ -509,47 +490,6 @@ ion-card img {
     object-fit: contain;
     margin: auto;
 }
-.time-wrap {
-    border-radius: 30px;
-}
-
-.time-wrap ion-item ion-label:first-child {
-    background: #1f94db !important;
-    border-radius: 30px 30px 30px 30px;
-    color: #fff;
-}
-
-.time-wrap ion-item ion-label {
-    cursor: pointer;
-    height: 100%;
-    margin: 0;
-}
-.time-wrap ion-item ion-label p {
-    margin: 4px 0;
-    text-align: center;
-    font-size: 17px;
-}
-
-.time-wrap ion-item ion-label:first-child p {
-    margin: 8px 0;
-    color: #fff;
-    font-size: 17px;
-}
-
-.time-wrap ion-item ion-label p span {
-    display: block;
-    color: #000;
-    font-size: 16px;
-}
-
-.time-wrap ion-item {
-    --padding-start: 0;
-    --padding-end: 0;
-}
-
-.time-wrap ion-item .item-inner {
-    --padding-end: 0;
-}
 
 ion-item p {
 	color: #1f94db;
@@ -565,24 +505,6 @@ ion-item p span {
 
 ion-list {
     border-radius: 12px;
-}
-
-.approved {
-    font-size: 13px;
-    font-weight: bold;
-    color: #999;
-}
-
-.approved ion-icon {
-    position: relative;
-    top: 2px;
-    left: 1px;
-}
-
-.categories {
-    font-weight: bold;
-    color: #1f94db;
-    font-size: 20px;
 }
 
 ion-toolbar {
@@ -650,23 +572,5 @@ ion-title {
     color: #605f5f;
     font-weight: bold;
 }
-
-ion-title {
-    color: #fff;
-}
-
-ion-menu ion-item {
-    padding-bottom: 12px;
-}
-
-.segment-class {
-    margin-top: 25px;
-    margin-bottom: 20px;
-}
-
-
-ion-label small{display: inline-block;margin-left:10px;padding-left: 10px;position: relative;}
-ion-label small::before{position: absolute;content: "";background: #1f94db;display: block;left: 0px;width: 1px;height: 12px;top: 1px;}
-
 
 </style>

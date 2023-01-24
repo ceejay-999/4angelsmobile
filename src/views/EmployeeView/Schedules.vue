@@ -27,7 +27,8 @@
             <ion-toolbar class="main-header">
                 <ion-buttons slot="end">
                     <ion-avatar @click="$router.push('/employee/profile')">
-                        <img :src="user.employee_profilepicture"/>
+                        <img :src="user.employee_profilepicture" v-if="user.employee_profilepicture != 'https://www.4angelshc.com/mobile/filesystem/'"/>
+                        <img src="../../images/profile.svg" v-else/>
                     </ion-avatar>
                 </ion-buttons>
                 <ion-title>Schedules</ion-title>
@@ -36,7 +37,7 @@
                 <ion-datetime @ionChange="setDate" presentation="date"></ion-datetime>
             </ion-toolbar>
         </ion-header>
-        <ion-content fullscreen="true">
+        <ion-content fullscreen="true" scroll-events="true" class="scrollContent" @ionScroll="scrollTopContent($event)">
             <ion-refresher style="position:relative; z-index:999;" slot="fixed" @ionRefresh="handleRefresh($event)">
                 <ion-refresher-content refreshing-spinner="crescent"></ion-refresher-content>
             </ion-refresher>
@@ -61,6 +62,10 @@
                 </ion-item>
             </ion-list>
 
+            <div class="scrollTop" v-show="showArrow" @click="clickToTop">
+                <ion-icon :icon="arrowUpCircle" size="large"></ion-icon>
+            </div>
+
         </ion-content>
     </ion-page>
 </template>
@@ -68,23 +73,19 @@
 <script>
 import { defineComponent } from 'vue';
 import { IonContent, IonPage, IonHeader, IonToolbar, IonDatetime, IonIcon,actionSheetController, IonTitle, IonButtons, IonRefresher, IonRefresherContent, IonButton, IonAvatar, IonLabel, IonItem, IonList } from '@ionic/vue';
-import { stopwatch, calendar, checkmarkDoneCircle, clipboard} from 'ionicons/icons';
+import { stopwatch, calendar, checkmarkDoneCircle, clipboard, arrowUpCircle } from 'ionicons/icons';
 import { axios, lStore,dateFormat, openToast } from '@/functions';
 
 export default defineComponent({
     name: 'SchedulesView',
     components: { IonIcon,IonContent, IonPage, IonHeader, IonToolbar, IonDatetime, IonTitle, IonButtons, IonRefresher, IonRefresherContent, IonButton, IonAvatar, IonLabel, IonItem, IonList },
     setup() {
-        const logScrolling2 = (e) => {
-            if (e.detail.scrollTop >= 50) {
-                document.querySelector('ion-header').classList.add('hidden');
-                document.querySelector('.sub-header2').classList.add('hidden');
-            } else {                                                                                
-                document.querySelector('ion-header').classList.remove('hidden');
-                document.querySelector('.sub-header2').classList.remove('hidden');
-            }
+        const clickToTop = () => {
+            const scrollContent = document.querySelector('ion-content.scrollContent');
+            scrollContent.scrollToTop(1000);
         }
-        return { logScrolling2 };
+
+        return { clickToTop };
     },
     data() {
         return{
@@ -92,6 +93,7 @@ export default defineComponent({
             task: null,
             message: null,
             schedulesToday:[],
+            cifile: 'https://www.4angelshc.com/mobile/filesystem/',
             takenSchedulesToday: [],
             noProfilePic: false,
             selectedDate:'2022-01-01',
@@ -102,20 +104,16 @@ export default defineComponent({
             openModal: false,
             openedSchedule:{},
             allowedRoles:{},
+            showArrow: false,
 
-            stopwatch, calendar, checkmarkDoneCircle, clipboard
+            stopwatch, calendar, checkmarkDoneCircle, clipboard, arrowUpCircle
         }
     },
     created() {
         this.user = lStore.get('user_info');
+        this.path = this.cifile+this.user.employee_id;
     },
     mounted() {
-        const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-        let month = months[new Date().getMonth()].toUpperCase();
-        this.getMonthToday = month;
-
-
-        
         let date = new Date().toLocaleDateString();
         date = date.split('/')[2]+'-'+date.split('/')[0]+'-'+date.split('/')[1];
         this.selectedDate = date;
@@ -134,12 +132,17 @@ export default defineComponent({
                 day: '2-digit'
             }).replaceAll('/','-');
             
-
-
         this.setDate(selectedDate);
     },
     methods: {
         dateFormat,
+        scrollTopContent(evn) {
+            if(evn.detail.scrollTop >= 100) {
+                this.showArrow = true;
+            } else {
+                this.showArrow = false;
+            }
+        },
         scheduleShowStatus(sched){
             if(sched.assignschedules_id == null) return false;
             if(sched.assignschedules_timeout != null) return [this.checkmarkDoneCircle,'Completed'];
@@ -271,6 +274,14 @@ export default defineComponent({
 
 .page-title{text-align: center; font-weight: bold; font-size: 20px; margin: 0 0 12px;}
 
+.scrollTop{
+    position: fixed;
+    z-index: 1;
+    bottom: 12px;
+    right: 12px;
+    cursor: pointer;
+}
+
 .noData{width: 230px; max-width: 100%; margin: 30px auto 0;}
 
 ion-menu ion-content ion-item ion-label {
@@ -314,12 +325,6 @@ ion-header.hidden {
     z-index: 1;
 }
 
-.sub-header ion-card {
-    margin: 0 auto 8px; 
-    padding: 15px 0;
-    border-radius: 25px;
-}
-
 .sub-header.hidden {
     top: -250px;
 }
@@ -338,35 +343,12 @@ ion-datetime {
 
 ion-title {
     --text-align: left !important; 
-    font-size: 21px; 
+    font-size: 20px; 
     --padding: 0 !important;
 }
 
 ion-title span {
     display: block;
-    color: #1f94db;
-    font-weight: bold;
-}
-
-ion-text h3 {
-    font-size: 18px;
-    margin: 0;
-}
-
-ion-card {
-    margin: 24px auto;
-}
-
-ion-card img {
-    display: table;
-    width: 100%;
-    max-width: 200px;
-    height: 100%;
-    object-fit: contain;
-    margin: auto;
-}
-
-ion-card-subtitle {
     color: #1f94db;
     font-weight: bold;
 }
@@ -399,50 +381,6 @@ ion-list ion-item {
 
 ion-list ion-item:nth-child(even) {
     border-left: 6px solid #1f94db  ;
-}
-
-ion-toolbar ion-text {
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-}
-
-ion-text h2 {
-    font-size: 17px; 
-    padding-left: 14px;
-}
-
-ion-text h2 {
-    font-size: 15px;
-    padding-left: 14px;
-    color: #4daca8;
-    font-weight: 600;
-    margin: 0 ;
-}
-
-ion-text h2 span {
-    display: block;
-}
-
-ion-text h2 small {
-    font-size: 10px;
-}
-
-ion-select {
-    width: 100%;
-}
-
-.facility_wrap {
-    border-radius: 20px;
-}
-
-.logout-icon {
-    position: absolute;
-    top: 35px;
-    right: 12px;
-    font-size: 25px;
-    color: #fff;
-    display: block;
 }
 
 .schedTaken ion-item{

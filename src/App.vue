@@ -49,7 +49,6 @@ export default defineComponent({
     defineCustomElements(window);
   },
   mounted() {
-    console.log(window.navigator.userAgent);
     if (!navigator.onLine) this.presentAlert3();
     else this.dismissAlert3();
     if (Capacitor.isNativePlatform()) {
