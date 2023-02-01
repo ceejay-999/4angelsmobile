@@ -74,8 +74,6 @@
   }
 
   .welcome p {
-    width: 310px;
-    max-width: 100%;
     margin: 0 auto;
     text-align: center;
     font-size: 16px;

@@ -1,6 +1,5 @@
 <template>
     <ion-page>
-        <!-- <BackButton :showButton = false bgColor="transparent" :toggleHidden = true ></BackButton> -->
         <ion-content fullscreen="true">
             <div class="form-container">
                 <span class="style-circle"></span>
@@ -137,7 +136,6 @@ import { defineComponent } from 'vue';
 import { IonContent, IonPage, IonText, IonItem, IonLabel, IonInput, IonButton, IonSpinner, IonModal, IonList, IonIcon, IonTitle, IonButtons, IonToolbar, IonHeader } from '@ionic/vue';
 import { axios, validateForm, openToast, lStore } from '@/functions';
 import { eye, eyeOff, close } from 'ionicons/icons';
-// import BackButton from '@/views/BackButton';
 
 export default defineComponent({
     name: 'LoginPage',
