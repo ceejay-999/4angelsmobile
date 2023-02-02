@@ -142,7 +142,7 @@ export default defineComponent({
             seconds: '',
             todaySchedule: true,
             upcomingSchedule: false,
-            upcoming: [{}],
+            upcoming: [],
             nextSched:{},
             geotest:{long:0,lat:0},
             timesheets:[],
